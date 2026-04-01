@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <ItemGroup>
+    <ProjectReference Include="..\Lab.Shared\Lab.Shared.csproj" />
+    <ProjectReference Include="..\Lab.Persistence\Lab.Persistence.csproj" />
+    <ProjectReference Include="..\Lab.Telemetry\Lab.Telemetry.csproj" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+</Project>

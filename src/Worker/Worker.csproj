@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk.Worker">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>dotnet-Worker-9e006102-2fb0-484e-b826-7f30aedabb96</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.Hosting" Version="10.0.5" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Lab.Shared\Lab.Shared.csproj" />
+    <ProjectReference Include="..\Lab.Persistence\Lab.Persistence.csproj" />
+    <ProjectReference Include="..\Lab.Telemetry\Lab.Telemetry.csproj" />
+  </ItemGroup>
+</Project>
