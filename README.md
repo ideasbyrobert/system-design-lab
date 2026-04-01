@@ -4,9 +4,6 @@ This is the executable code root for the local systems-design lab.
 
 The backlog and extracted ticket queue live one level up:
 
-- `../../project.md`
-- `../../tickets/`
-
 ## Architecture
 
 The lab is intentionally built as small explicit processes so system behavior stays visible:
