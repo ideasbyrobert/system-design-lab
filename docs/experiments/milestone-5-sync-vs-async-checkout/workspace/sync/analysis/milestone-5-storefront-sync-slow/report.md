@@ -4,8 +4,8 @@ Generated: `2026-04-01T08:51:37.3548330+00:00`
 
 ## Inputs
 
-- Requests file: `/Users/robertkarapetyan/git/project/source/ecommerce-systems-lab/docs/experiments/milestone-5-sync-vs-async-checkout/workspace/sync/logs/requests.jsonl`
-- Jobs file: `/Users/robertkarapetyan/git/project/source/ecommerce-systems-lab/docs/experiments/milestone-5-sync-vs-async-checkout/workspace/sync/logs/jobs.jsonl`
+- Requests file: `docs/experiments/milestone-5-sync-vs-async-checkout/workspace/sync/logs/requests.jsonl`
+- Jobs file: `docs/experiments/milestone-5-sync-vs-async-checkout/workspace/sync/logs/jobs.jsonl`
 - Filter run id: `milestone-5-storefront-sync-slow`
 - Filter from: `n/a`
 - Filter to: `n/a`

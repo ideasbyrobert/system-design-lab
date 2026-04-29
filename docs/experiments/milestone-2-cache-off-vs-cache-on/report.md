@@ -34,7 +34,6 @@ Average concurrency is reconstructed from full request lifetimes inside that bou
 The experiment was produced by:
 
 ```bash
-cd /Users/robertkarapetyan/git/project/source/ecommerce-systems-lab
 ./scripts/experiments/run-milestone-2-cache-off-vs-cache-on.sh
 ```
 

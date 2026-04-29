@@ -4,8 +4,8 @@ Generated: `2026-04-01T08:54:40.3349760+00:00`
 
 ## Inputs
 
-- Requests file: `/Users/robertkarapetyan/git/project/source/ecommerce-systems-lab/docs/experiments/milestone-9-same-region-vs-cross-region/workspace/west-local/logs/requests.jsonl`
-- Jobs file: `/Users/robertkarapetyan/git/project/source/ecommerce-systems-lab/docs/experiments/milestone-9-same-region-vs-cross-region/workspace/west-local/logs/jobs.jsonl`
+- Requests file: `docs/experiments/milestone-9-same-region-vs-cross-region/workspace/west-local/logs/requests.jsonl`
+- Jobs file: `docs/experiments/milestone-9-same-region-vs-cross-region/workspace/west-local/logs/jobs.jsonl`
 - Filter run id: `milestone-9-west-local`
 - Filter from: `n/a`
 - Filter to: `n/a`

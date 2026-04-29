@@ -30,16 +30,15 @@ All three arms used the same user-visible path. What changed was topology.
 The experiment was produced by:
 
 ```bash
-cd /Users/robertkarapetyan/git/project/source/ecommerce-systems-lab
 ./scripts/experiments/run-milestone-9-same-region-vs-cross-region.sh
 ```
 
 Generated artifacts live in:
 
-- `/Users/robertkarapetyan/git/project/source/ecommerce-systems-lab/docs/experiments/milestone-9-same-region-vs-cross-region/artifacts/east-local/`
-- `/Users/robertkarapetyan/git/project/source/ecommerce-systems-lab/docs/experiments/milestone-9-same-region-vs-cross-region/artifacts/west-local/`
-- `/Users/robertkarapetyan/git/project/source/ecommerce-systems-lab/docs/experiments/milestone-9-same-region-vs-cross-region/artifacts/west-forced-east/`
-- `/Users/robertkarapetyan/git/project/source/ecommerce-systems-lab/docs/experiments/milestone-9-same-region-vs-cross-region/artifacts/comparison.json`
+- `docs/experiments/milestone-9-same-region-vs-cross-region/artifacts/east-local/`
+- `docs/experiments/milestone-9-same-region-vs-cross-region/artifacts/west-local/`
+- `docs/experiments/milestone-9-same-region-vs-cross-region/artifacts/west-forced-east/`
+- `docs/experiments/milestone-9-same-region-vs-cross-region/artifacts/comparison.json`
 
 ## Topology
 

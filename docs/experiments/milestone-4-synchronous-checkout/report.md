@@ -50,7 +50,6 @@ That filter is important because `requests.jsonl` still contains direct traces f
 The experiment was produced by:
 
 ```bash
-cd /Users/robertkarapetyan/git/project/source/ecommerce-systems-lab
 ./scripts/experiments/run-milestone-4-synchronous-checkout.sh
 ```
 

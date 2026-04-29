@@ -73,7 +73,6 @@ So this report does not stop at request latency. It also measures the cost that 
 The experiment was produced by:
 
 ```bash
-cd /Users/robertkarapetyan/git/project/source/ecommerce-systems-lab
 ./scripts/experiments/run-milestone-5-sync-vs-async-checkout.sh
 ```
 

@@ -20,8 +20,8 @@ Processed job metrics are reported separately from job traces, and any live queu
 
 ## Topology
 
-- Requests file: `/Users/robertkarapetyan/git/project/source/ecommerce-systems-lab/docs/experiments/milestone-1-cpu-vs-io/workspace/logs/requests.jsonl`
-- Jobs file: `/Users/robertkarapetyan/git/project/source/ecommerce-systems-lab/docs/experiments/milestone-1-cpu-vs-io/workspace/logs/jobs.jsonl`
+- Requests file: `docs/experiments/milestone-1-cpu-vs-io/workspace/logs/requests.jsonl`
+- Jobs file: `docs/experiments/milestone-1-cpu-vs-io/workspace/logs/jobs.jsonl`
 - Included run ids: `milestone-1-cpu`
 - Live queue snapshot captured: `no`
 - Read freshness data present: `no`
@@ -45,7 +45,7 @@ If you need the intended offered load, endpoint path, or scenario setup, pair th
 
 ### Queue State Snapshot
 
-No live queue snapshot was captured. Reason: `Primary database file '/Users/robertkarapetyan/git/project/source/ecommerce-systems-lab/docs/experiments/milestone-1-cpu-vs-io/workspace/data/primary.db' does not exist.`
+No live queue snapshot was captured. Reason: `Primary database file 'docs/experiments/milestone-1-cpu-vs-io/workspace/data/primary.db' does not exist.`
 
 ### Request Metrics
 

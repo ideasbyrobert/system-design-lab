@@ -59,7 +59,6 @@ Scenario B, shared downstream bottleneck:
 The experiment was produced by:
 
 ```bash
-cd /Users/robertkarapetyan/git/project/source/ecommerce-systems-lab
 ./scripts/experiments/run-milestone-7-one-instance-vs-two-instance-scaling.sh
 ```
 

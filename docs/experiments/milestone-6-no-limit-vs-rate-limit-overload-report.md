@@ -58,7 +58,6 @@ This matters because the rate-limited arm returns many fast `429` responses. If 
 The experiment was produced by:
 
 ```bash
-cd /Users/robertkarapetyan/git/project/source/ecommerce-systems-lab
 ./scripts/experiments/run-milestone-6-no-limit-vs-rate-limit-overload.sh
 ```
 

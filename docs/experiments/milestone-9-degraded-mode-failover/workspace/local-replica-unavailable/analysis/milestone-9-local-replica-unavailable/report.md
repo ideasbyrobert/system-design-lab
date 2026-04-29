@@ -4,8 +4,8 @@ Generated: `2026-04-01T08:55:17.3880210+00:00`
 
 ## Inputs
 
-- Requests file: `/Users/robertkarapetyan/git/project/source/ecommerce-systems-lab/docs/experiments/milestone-9-degraded-mode-failover/workspace/local-replica-unavailable/logs/requests.jsonl`
-- Jobs file: `/Users/robertkarapetyan/git/project/source/ecommerce-systems-lab/docs/experiments/milestone-9-degraded-mode-failover/workspace/local-replica-unavailable/logs/jobs.jsonl`
+- Requests file: `docs/experiments/milestone-9-degraded-mode-failover/workspace/local-replica-unavailable/logs/requests.jsonl`
+- Jobs file: `docs/experiments/milestone-9-degraded-mode-failover/workspace/local-replica-unavailable/logs/jobs.jsonl`
 - Filter run id: `milestone-9-local-replica-unavailable`
 - Filter from: `n/a`
 - Filter to: `n/a`

@@ -4,8 +4,8 @@ Generated: `2026-04-01T08:52:46.3279770+00:00`
 
 ## Inputs
 
-- Requests file: `/Users/robertkarapetyan/git/project/source/ecommerce-systems-lab/docs/experiments/milestone-7-one-instance-vs-two-instance-scaling/workspace/shared-checkout/one-instance/logs/requests.jsonl`
-- Jobs file: `/Users/robertkarapetyan/git/project/source/ecommerce-systems-lab/docs/experiments/milestone-7-one-instance-vs-two-instance-scaling/workspace/shared-checkout/one-instance/logs/jobs.jsonl`
+- Requests file: `docs/experiments/milestone-7-one-instance-vs-two-instance-scaling/workspace/shared-checkout/one-instance/logs/requests.jsonl`
+- Jobs file: `docs/experiments/milestone-7-one-instance-vs-two-instance-scaling/workspace/shared-checkout/one-instance/logs/jobs.jsonl`
 - Filter run id: `milestone-7-shared-checkout-one-instance`
 - Filter from: `n/a`
 - Filter to: `n/a`

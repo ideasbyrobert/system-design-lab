@@ -34,7 +34,6 @@ Order-history reads:
 The experiment was produced by:
 
 ```bash
-cd /Users/robertkarapetyan/git/project/source/ecommerce-systems-lab
 ./scripts/experiments/run-milestone-8-primary-vs-replica-read-model.sh
 ```
 

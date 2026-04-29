@@ -4,8 +4,8 @@ Generated: `2026-04-01T08:53:19.4446140+00:00`
 
 ## Inputs
 
-- Requests file: `/Users/robertkarapetyan/git/project/source/ecommerce-systems-lab/docs/experiments/milestone-8-primary-vs-replica-read-model/workspace/product-reads/logs/requests.jsonl`
-- Jobs file: `/Users/robertkarapetyan/git/project/source/ecommerce-systems-lab/docs/experiments/milestone-8-primary-vs-replica-read-model/workspace/product-reads/logs/jobs.jsonl`
+- Requests file: `docs/experiments/milestone-8-primary-vs-replica-read-model/workspace/product-reads/logs/requests.jsonl`
+- Jobs file: `docs/experiments/milestone-8-primary-vs-replica-read-model/workspace/product-reads/logs/jobs.jsonl`
 - Filter run id: `milestone-8-product-primary`
 - Filter from: `n/a`
 - Filter to: `n/a`

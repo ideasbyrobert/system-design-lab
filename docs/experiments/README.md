@@ -28,67 +28,65 @@ Inside `artifacts/`, the per-run analyzer reports are generated automatically by
 All commands assume:
 
 ```bash
-cd /Users/robertkarapetyan/git/project/source/ecommerce-systems-lab
 ```
 
 ### Milestone 1
 
 - Script: `./scripts/experiments/run-milestone-1-cpu-vs-io.sh`
-- Folder: [`milestone-1-cpu-vs-io`](/Users/robertkarapetyan/git/project/source/ecommerce-systems-lab/docs/experiments/milestone-1-cpu-vs-io)
-- Report: [report.md](/Users/robertkarapetyan/git/project/source/ecommerce-systems-lab/docs/experiments/milestone-1-cpu-vs-io/report.md)
+- Folder: [`milestone-1-cpu-vs-io`](docs/experiments/milestone-1-cpu-vs-io)
+- Report: [report.md](docs/experiments/milestone-1-cpu-vs-io/report.md)
 
 ### Milestone 2
 
 - Script: `./scripts/experiments/run-milestone-2-cache-off-vs-cache-on.sh`
-- Folder: [`milestone-2-cache-off-vs-cache-on`](/Users/robertkarapetyan/git/project/source/ecommerce-systems-lab/docs/experiments/milestone-2-cache-off-vs-cache-on)
-- Report: [report.md](/Users/robertkarapetyan/git/project/source/ecommerce-systems-lab/docs/experiments/milestone-2-cache-off-vs-cache-on/report.md)
+- Folder: [`milestone-2-cache-off-vs-cache-on`](docs/experiments/milestone-2-cache-off-vs-cache-on)
+- Report: [report.md](docs/experiments/milestone-2-cache-off-vs-cache-on/report.md)
 
 ### Milestone 4
 
 - Script: `./scripts/experiments/run-milestone-4-synchronous-checkout.sh`
-- Folder: [`milestone-4-synchronous-checkout`](/Users/robertkarapetyan/git/project/source/ecommerce-systems-lab/docs/experiments/milestone-4-synchronous-checkout)
-- Report: [report.md](/Users/robertkarapetyan/git/project/source/ecommerce-systems-lab/docs/experiments/milestone-4-synchronous-checkout/report.md)
+- Folder: [`milestone-4-synchronous-checkout`](docs/experiments/milestone-4-synchronous-checkout)
+- Report: [report.md](docs/experiments/milestone-4-synchronous-checkout/report.md)
 
 ### Milestone 5
 
 - Script: `./scripts/experiments/run-milestone-5-sync-vs-async-checkout.sh`
-- Folder: [`milestone-5-sync-vs-async-checkout`](/Users/robertkarapetyan/git/project/source/ecommerce-systems-lab/docs/experiments/milestone-5-sync-vs-async-checkout)
-- Report: [report.md](/Users/robertkarapetyan/git/project/source/ecommerce-systems-lab/docs/experiments/milestone-5-sync-vs-async-checkout/report.md)
+- Folder: [`milestone-5-sync-vs-async-checkout`](docs/experiments/milestone-5-sync-vs-async-checkout)
+- Report: [report.md](docs/experiments/milestone-5-sync-vs-async-checkout/report.md)
 
 ### Milestone 6
 
 - Script: `./scripts/experiments/run-milestone-6-no-limit-vs-rate-limit-overload.sh`
-- Folder: [`milestone-6-no-limit-vs-rate-limit-overload`](/Users/robertkarapetyan/git/project/source/ecommerce-systems-lab/docs/experiments/milestone-6-no-limit-vs-rate-limit-overload)
-- Report: [report.md](/Users/robertkarapetyan/git/project/source/ecommerce-systems-lab/docs/experiments/milestone-6-no-limit-vs-rate-limit-overload/report.md)
+- Folder: [`milestone-6-no-limit-vs-rate-limit-overload`](docs/experiments/milestone-6-no-limit-vs-rate-limit-overload)
+- Report: [report.md](docs/experiments/milestone-6-no-limit-vs-rate-limit-overload/report.md)
 
 ### Milestone 7
 
 - Script: `./scripts/experiments/run-milestone-7-one-instance-vs-two-instance-scaling.sh`
-- Folder: [`milestone-7-one-instance-vs-two-instance-scaling`](/Users/robertkarapetyan/git/project/source/ecommerce-systems-lab/docs/experiments/milestone-7-one-instance-vs-two-instance-scaling)
-- Report: [report.md](/Users/robertkarapetyan/git/project/source/ecommerce-systems-lab/docs/experiments/milestone-7-one-instance-vs-two-instance-scaling/report.md)
+- Folder: [`milestone-7-one-instance-vs-two-instance-scaling`](docs/experiments/milestone-7-one-instance-vs-two-instance-scaling)
+- Report: [report.md](docs/experiments/milestone-7-one-instance-vs-two-instance-scaling/report.md)
 
 ### Milestone 8
 
 - Script: `./scripts/experiments/run-milestone-8-primary-vs-replica-read-model.sh`
-- Folder: [`milestone-8-primary-vs-replica-read-model`](/Users/robertkarapetyan/git/project/source/ecommerce-systems-lab/docs/experiments/milestone-8-primary-vs-replica-read-model)
-- Report: [report.md](/Users/robertkarapetyan/git/project/source/ecommerce-systems-lab/docs/experiments/milestone-8-primary-vs-replica-read-model/report.md)
+- Folder: [`milestone-8-primary-vs-replica-read-model`](docs/experiments/milestone-8-primary-vs-replica-read-model)
+- Report: [report.md](docs/experiments/milestone-8-primary-vs-replica-read-model/report.md)
 
 ### Milestone 9
 
 - Script: `./scripts/experiments/run-milestone-9-same-region-vs-cross-region.sh`
-- Folder: [`milestone-9-same-region-vs-cross-region`](/Users/robertkarapetyan/git/project/source/ecommerce-systems-lab/docs/experiments/milestone-9-same-region-vs-cross-region)
-- Report: [report.md](/Users/robertkarapetyan/git/project/source/ecommerce-systems-lab/docs/experiments/milestone-9-same-region-vs-cross-region/report.md)
+- Folder: [`milestone-9-same-region-vs-cross-region`](docs/experiments/milestone-9-same-region-vs-cross-region)
+- Report: [report.md](docs/experiments/milestone-9-same-region-vs-cross-region/report.md)
 
 - Script: `./scripts/experiments/run-milestone-9-degraded-mode-failover.sh`
-- Folder: [`milestone-9-degraded-mode-failover`](/Users/robertkarapetyan/git/project/source/ecommerce-systems-lab/docs/experiments/milestone-9-degraded-mode-failover)
-- Report: [report.md](/Users/robertkarapetyan/git/project/source/ecommerce-systems-lab/docs/experiments/milestone-9-degraded-mode-failover/report.md)
+- Folder: [`milestone-9-degraded-mode-failover`](docs/experiments/milestone-9-degraded-mode-failover)
+- Report: [report.md](docs/experiments/milestone-9-degraded-mode-failover/report.md)
 
 ## Analyzer Output
 
 To generate a standard per-run report directly:
 
 ```bash
-cd /Users/robertkarapetyan/git/project/source/ecommerce-systems-lab
 Lab__Repository__RootPath=/path/to/workspace \
 dotnet run --project src/Analyze -- --run-id <run-id> [--operation <operation>]
 ```

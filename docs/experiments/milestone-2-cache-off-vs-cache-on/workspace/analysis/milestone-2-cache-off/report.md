@@ -4,8 +4,8 @@ Generated: `2026-04-01T08:51:03.0800860+00:00`
 
 ## Inputs
 
-- Requests file: `/Users/robertkarapetyan/git/project/source/ecommerce-systems-lab/docs/experiments/milestone-2-cache-off-vs-cache-on/workspace/logs/requests.jsonl`
-- Jobs file: `/Users/robertkarapetyan/git/project/source/ecommerce-systems-lab/docs/experiments/milestone-2-cache-off-vs-cache-on/workspace/logs/jobs.jsonl`
+- Requests file: `docs/experiments/milestone-2-cache-off-vs-cache-on/workspace/logs/requests.jsonl`
+- Jobs file: `docs/experiments/milestone-2-cache-off-vs-cache-on/workspace/logs/jobs.jsonl`
 - Filter run id: `milestone-2-cache-off`
 - Filter from: `n/a`
 - Filter to: `n/a`

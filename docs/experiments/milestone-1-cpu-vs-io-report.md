@@ -33,7 +33,6 @@ Average concurrency is reconstructed from full request lifetimes in the trace da
 The experiment was produced by:
 
 ```bash
-cd /Users/robertkarapetyan/git/project/source/ecommerce-systems-lab
 ./scripts/experiments/run-milestone-1-cpu-vs-io.sh
 ```
 

@@ -4,8 +4,8 @@ Generated: `2026-04-01T08:51:59.6914130+00:00`
 
 ## Inputs
 
-- Requests file: `/Users/robertkarapetyan/git/project/source/ecommerce-systems-lab/docs/experiments/milestone-6-no-limit-vs-rate-limit-overload/workspace/no-limit/logs/requests.jsonl`
-- Jobs file: `/Users/robertkarapetyan/git/project/source/ecommerce-systems-lab/docs/experiments/milestone-6-no-limit-vs-rate-limit-overload/workspace/no-limit/logs/jobs.jsonl`
+- Requests file: `docs/experiments/milestone-6-no-limit-vs-rate-limit-overload/workspace/no-limit/logs/requests.jsonl`
+- Jobs file: `docs/experiments/milestone-6-no-limit-vs-rate-limit-overload/workspace/no-limit/logs/jobs.jsonl`
 - Filter run id: `milestone-6-storefront-sync-no-limit`
 - Filter from: `n/a`
 - Filter to: `n/a`

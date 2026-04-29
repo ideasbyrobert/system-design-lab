@@ -4,8 +4,8 @@ Generated: `2026-04-01T08:50:29.1925600+00:00`
 
 ## Inputs
 
-- Requests file: `/Users/robertkarapetyan/git/project/source/ecommerce-systems-lab/docs/experiments/milestone-1-cpu-vs-io/workspace/logs/requests.jsonl`
-- Jobs file: `/Users/robertkarapetyan/git/project/source/ecommerce-systems-lab/docs/experiments/milestone-1-cpu-vs-io/workspace/logs/jobs.jsonl`
+- Requests file: `docs/experiments/milestone-1-cpu-vs-io/workspace/logs/requests.jsonl`
+- Jobs file: `docs/experiments/milestone-1-cpu-vs-io/workspace/logs/jobs.jsonl`
 - Filter run id: `milestone-1-io`
 - Filter from: `n/a`
 - Filter to: `n/a`
@@ -14,7 +14,7 @@ Generated: `2026-04-01T08:50:29.1925600+00:00`
 
 ## Queue State Snapshot
 
-No live queue snapshot was captured. Reason: `Primary database file '/Users/robertkarapetyan/git/project/source/ecommerce-systems-lab/docs/experiments/milestone-1-cpu-vs-io/workspace/data/primary.db' does not exist.`
+No live queue snapshot was captured. Reason: `Primary database file 'docs/experiments/milestone-1-cpu-vs-io/workspace/data/primary.db' does not exist.`
 
 ## Request Metrics
 

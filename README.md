@@ -50,14 +50,13 @@ The codebase is organized around milestone experiments rather than around a fake
 
 Runnable milestone scripts and their curated reports live in:
 
-- [docs/experiments/README.md](/Users/robertkarapetyan/git/project/source/ecommerce-systems-lab/docs/experiments/README.md)
+- [docs/experiments/README.md](docs/experiments/README.md)
 
 ## Operator Quick Start
 
 This is the shortest clean-machine-style path from clone to report:
 
 ```bash
-cd /Users/robertkarapetyan/git/project/source/ecommerce-systems-lab
 dotnet tool restore
 dotnet build ecommerce-systems-lab.sln
 
@@ -88,15 +87,15 @@ That walkthrough produces:
 
 The operator scripts are the stable entry points for manual lab work:
 
-- [`seed-lab.sh`](/Users/robertkarapetyan/git/project/source/ecommerce-systems-lab/scripts/operators/seed-lab.sh)
+- [`seed-lab.sh`](scripts/operators/seed-lab.sh)
   seeds `primary.db`, rebuilds the product-page read model, and syncs both replicas by default
-- [`start-core-topology.sh`](/Users/robertkarapetyan/git/project/source/ecommerce-systems-lab/scripts/operators/start-core-topology.sh)
+- [`start-core-topology.sh`](scripts/operators/start-core-topology.sh)
   starts `Catalog.Api`, `Cart.Api`, `Order.Api`, `PaymentSimulator.Api`, `Storefront.Api`, and `Worker`
-- [`start-east-west-topology.sh`](/Users/robertkarapetyan/git/project/source/ecommerce-systems-lab/scripts/operators/start-east-west-topology.sh)
+- [`start-east-west-topology.sh`](scripts/operators/start-east-west-topology.sh)
   starts east/west Catalog and Storefront instances plus the local `Proxy`
-- [`analyze-run.sh`](/Users/robertkarapetyan/git/project/source/ecommerce-systems-lab/scripts/operators/analyze-run.sh)
+- [`analyze-run.sh`](scripts/operators/analyze-run.sh)
   runs `Analyze` against one `runId` and prints the generated output paths
-- [`stop-topology.sh`](/Users/robertkarapetyan/git/project/source/ecommerce-systems-lab/scripts/operators/stop-topology.sh)
+- [`stop-topology.sh`](scripts/operators/stop-topology.sh)
   stops any operator-managed background processes for the chosen workspace
 
 All operator scripts default to:
@@ -110,7 +109,6 @@ Override that by exporting `LAB_OPERATOR_ROOT` or by passing an explicit workspa
 ### Core Topology
 
 ```bash
-cd /Users/robertkarapetyan/git/project/source/ecommerce-systems-lab
 export LAB_OPERATOR_ROOT=/tmp/ecommerce-systems-lab-core
 
 ./scripts/operators/seed-lab.sh
@@ -130,7 +128,6 @@ Default core topology ports:
 ### East/West Topology
 
 ```bash
-cd /Users/robertkarapetyan/git/project/source/ecommerce-systems-lab
 export LAB_OPERATOR_ROOT=/tmp/ecommerce-systems-lab-regions
 
 ./scripts/operators/seed-lab.sh
@@ -152,11 +149,11 @@ Default east/west topology ports:
 
 All milestone experiments already have dedicated scripts under:
 
-- [/Users/robertkarapetyan/git/project/source/ecommerce-systems-lab/scripts/experiments](/Users/robertkarapetyan/git/project/source/ecommerce-systems-lab/scripts/experiments)
+- [scripts/experiments](scripts/experiments)
 
 For the index of all experiment scripts and their output folders, use:
 
-- [docs/experiments/README.md](/Users/robertkarapetyan/git/project/source/ecommerce-systems-lab/docs/experiments/README.md)
+- [docs/experiments/README.md](docs/experiments/README.md)
 
 ## Logs, Runs, And Reports
 
@@ -179,7 +176,7 @@ For a workspace rooted at `LAB_OPERATOR_ROOT=/tmp/ecommerce-systems-lab-demo`, t
 
 Curated experiment write-ups stay inside the repo under:
 
-- [/Users/robertkarapetyan/git/project/source/ecommerce-systems-lab/docs/experiments](/Users/robertkarapetyan/git/project/source/ecommerce-systems-lab/docs/experiments)
+- [docs/experiments](docs/experiments)
 
 ## Troubleshooting
 
@@ -192,7 +189,7 @@ Symptoms:
 
 What to do:
 
-- stop the current topology with [`stop-topology.sh`](/Users/robertkarapetyan/git/project/source/ecommerce-systems-lab/scripts/operators/stop-topology.sh)
+- stop the current topology with [`stop-topology.sh`](scripts/operators/stop-topology.sh)
 - make sure two different shells are not sharing the same `LAB_OPERATOR_ROOT`
 - do not run `SeedData`, `Worker`, and experiment scripts concurrently against the same workspace unless that concurrency is the thing you are intentionally testing
 - if needed, start again with a fresh workspace such as `export LAB_OPERATOR_ROOT=/tmp/ecommerce-systems-lab-fresh`
@@ -294,7 +291,6 @@ ecommerce-systems-lab/
 ## Build
 
 ```bash
-cd /Users/robertkarapetyan/git/project/source/ecommerce-systems-lab
 dotnet tool restore
 dotnet build ecommerce-systems-lab.sln
 ```
@@ -302,7 +298,6 @@ dotnet build ecommerce-systems-lab.sln
 ## Test
 
 ```bash
-cd /Users/robertkarapetyan/git/project/source/ecommerce-systems-lab
 dotnet test ecommerce-systems-lab.sln
 ```
 
@@ -318,7 +313,6 @@ All tests run against temporary directories plus local SQLite files. They do not
 ## First Run Targets
 
 ```bash
-cd /Users/robertkarapetyan/git/project/source/ecommerce-systems-lab
 dotnet run --project src/Storefront.Api
 dotnet run --project src/Analyze
 ```
@@ -345,7 +339,6 @@ When sticky mode is enabled, the proxy keeps the assignment in memory and reuses
 Example with two Storefront instances:
 
 ```bash
-cd /Users/robertkarapetyan/git/project/source/ecommerce-systems-lab
 LAB_ROOT=/tmp/ecommerce-systems-lab-proxy
 
 Lab__Repository__RootPath=$LAB_ROOT \
@@ -421,7 +414,6 @@ The resulting dependency trace metadata now includes:
 Example east/west product-read topology:
 
 ```bash
-cd /Users/robertkarapetyan/git/project/source/ecommerce-systems-lab
 LAB_ROOT=/tmp/ecommerce-systems-lab-region
 
 Lab__Repository__RootPath=$LAB_ROOT \
@@ -499,7 +491,6 @@ When `--run-id` is supplied, the queue snapshot is filtered by the queue job pay
 Example:
 
 ```bash
-cd /Users/robertkarapetyan/git/project/source/ecommerce-systems-lab
 dotnet run --project src/Analyze -- --run-id storefront.api-20260331T110557496Z-abc123
 dotnet run --project src/Analyze -- --run-id milestone-2-cache-on --operation product-page
 ```
@@ -516,7 +507,6 @@ Optional filters:
 The first experiment helpers are now available:
 
 ```bash
-cd /Users/robertkarapetyan/git/project/source/ecommerce-systems-lab
 dotnet run --project src/SeedData -- --products 100 --users 25 --reset true
 dotnet run --project src/LoadGen -- --target-url http://127.0.0.1:5081/ --rps 5 --duration-seconds 5 --concurrency-cap 2 --run-id demo-run
 ```
@@ -558,7 +548,6 @@ The first real background worker now also lives in `Worker`:
 Useful commands:
 
 ```bash
-cd /Users/robertkarapetyan/git/project/source/ecommerce-systems-lab
 dotnet tool restore
 dotnet tool run dotnet-ef migrations list --project src/Lab.Persistence/Lab.Persistence.csproj --context PrimaryDbContext
 dotnet tool run dotnet-ef database update --project src/Lab.Persistence/Lab.Persistence.csproj --context PrimaryDbContext
@@ -593,7 +582,6 @@ The `/io` endpoint simulates downstream wait with intentionally low CPU cost, re
 Example:
 
 ```bash
-cd /Users/robertkarapetyan/git/project/source/ecommerce-systems-lab
 dotnet run --project src/Storefront.Api -- --urls http://127.0.0.1:5083
 curl 'http://127.0.0.1:5083/cpu?workFactor=20&iterations=1000'
 curl 'http://127.0.0.1:5083/io?delayMs=80&jitterMs=0'
@@ -625,7 +613,6 @@ Configuration:
 Example:
 
 ```bash
-cd /Users/robertkarapetyan/git/project/source/ecommerce-systems-lab
 Lab__Repository__RootPath=/tmp/ecommerce-systems-lab dotnet run --project src/SeedData -- --products 25 --users 5 --reset true
 Lab__Repository__RootPath=/tmp/ecommerce-systems-lab dotnet run --project src/Catalog.Api -- --urls http://127.0.0.1:5084
 Lab__Repository__RootPath=/tmp/ecommerce-systems-lab \
@@ -668,7 +655,6 @@ Background reading:
 Example:
 
 ```bash
-cd /Users/robertkarapetyan/git/project/source/ecommerce-systems-lab
 Lab__Repository__RootPath=/tmp/ecommerce-systems-lab dotnet run --project src/SeedData -- --products 25 --users 5 --reset true
 Lab__Repository__RootPath=/tmp/ecommerce-systems-lab dotnet run --project src/Cart.Api -- --urls http://127.0.0.1:5085
 Lab__Repository__RootPath=/tmp/ecommerce-systems-lab \
@@ -713,7 +699,6 @@ When the caller sends `X-Debug-Telemetry: true`, the response also includes inte
 Example:
 
 ```bash
-cd /Users/robertkarapetyan/git/project/source/ecommerce-systems-lab
 dotnet run --project src/SeedData -- --products 25 --users 5 --reset true
 dotnet run --project src/Catalog.Api -- --urls http://127.0.0.1:5084
 curl -H 'X-Debug-Telemetry: true' 'http://127.0.0.1:5084/catalog/products/sku-0001'
@@ -753,7 +738,6 @@ Each row stores:
 Build or rebuild the product-page projection with `SeedData`:
 
 ```bash
-cd /Users/robertkarapetyan/git/project/source/ecommerce-systems-lab
 Lab__Repository__RootPath=/tmp/ecommerce-systems-lab \
 dotnet run --project src/SeedData -- --products 25 --users 5 --reset true --rebuild-product-page-projection true
 
@@ -778,7 +762,6 @@ That last detail is the important one. If primary changes during the configured 
 Seed and sync replicas in one run:
 
 ```bash
-cd /Users/robertkarapetyan/git/project/source/ecommerce-systems-lab
 Lab__Repository__RootPath=/tmp/ecommerce-systems-lab \
 Lab__ReplicaSync__EastLagMilliseconds=250 \
 Lab__ReplicaSync__WestLagMilliseconds=500 \
@@ -788,7 +771,6 @@ dotnet run --project src/SeedData -- --products 25 --users 5 --reset true --sync
 Resync replicas without reseeding primary:
 
 ```bash
-cd /Users/robertkarapetyan/git/project/source/ecommerce-systems-lab
 Lab__Repository__RootPath=/tmp/ecommerce-systems-lab \
 dotnet run --project src/SeedData -- --skip-primary-seed true --sync-replicas true
 ```
@@ -852,7 +834,6 @@ Useful configuration:
 Example:
 
 ```bash
-cd /Users/robertkarapetyan/git/project/source/ecommerce-systems-lab
 Lab__Repository__RootPath=/tmp/ecommerce-systems-lab \
 dotnet run --project src/PaymentSimulator.Api -- --urls http://127.0.0.1:5086
 
@@ -978,7 +959,6 @@ Checkout request body:
 Example:
 
 ```bash
-cd /Users/robertkarapetyan/git/project/source/ecommerce-systems-lab
 Lab__Repository__RootPath=/tmp/ecommerce-systems-lab dotnet run --project src/SeedData -- --products 25 --users 5 --reset true
 Lab__Repository__RootPath=/tmp/ecommerce-systems-lab dotnet run --project src/Cart.Api -- --urls http://127.0.0.1:5085
 Lab__Repository__RootPath=/tmp/ecommerce-systems-lab dotnet run --project src/PaymentSimulator.Api -- --urls http://127.0.0.1:5086
@@ -1053,7 +1033,6 @@ Current order-history behavior:
 Useful commands:
 
 ```bash
-cd /Users/robertkarapetyan/git/project/source/ecommerce-systems-lab
 Lab__Repository__RootPath=/tmp/ecommerce-systems-lab dotnet run --project src/SeedData -- --products 25 --users 5 --reset true
 Lab__Repository__RootPath=/tmp/ecommerce-systems-lab dotnet run --project src/Cart.Api -- --urls http://127.0.0.1:5085
 Lab__Repository__RootPath=/tmp/ecommerce-systems-lab dotnet run --project src/PaymentSimulator.Api -- --urls http://127.0.0.1:5086
@@ -1086,7 +1065,6 @@ For the standard experiment folder layout and the full index of runnable milesto
 The first side-by-side CPU-vs-I/O experiment is automated here:
 
 ```bash
-cd /Users/robertkarapetyan/git/project/source/ecommerce-systems-lab
 ./scripts/experiments/run-milestone-1-cpu-vs-io.sh
 ```
 
@@ -1103,7 +1081,6 @@ The comparative write-up lives at:
 The cache-off vs cache-on experiment is automated here:
 
 ```bash
-cd /Users/robertkarapetyan/git/project/source/ecommerce-systems-lab
 ./scripts/experiments/run-milestone-2-cache-off-vs-cache-on.sh
 ```
 
@@ -1120,7 +1097,6 @@ The comparative write-up lives at:
 The synchronous checkout experiment is automated here:
 
 ```bash
-cd /Users/robertkarapetyan/git/project/source/ecommerce-systems-lab
 ./scripts/experiments/run-milestone-4-synchronous-checkout.sh
 ```
 
@@ -1137,7 +1113,6 @@ The comparative write-up lives at:
 The sync-vs-async checkout experiment is automated here:
 
 ```bash
-cd /Users/robertkarapetyan/git/project/source/ecommerce-systems-lab
 ./scripts/experiments/run-milestone-5-sync-vs-async-checkout.sh
 ```
 
@@ -1157,7 +1132,6 @@ The comparative write-up lives at:
 The no-limit vs rate-limit overload experiment is automated here:
 
 ```bash
-cd /Users/robertkarapetyan/git/project/source/ecommerce-systems-lab
 ./scripts/experiments/run-milestone-6-no-limit-vs-rate-limit-overload.sh
 ```
 
@@ -1181,7 +1155,6 @@ The comparative write-up lives at:
 The one-instance vs two-instance scaling experiment is automated here:
 
 ```bash
-cd /Users/robertkarapetyan/git/project/source/ecommerce-systems-lab
 ./scripts/experiments/run-milestone-7-one-instance-vs-two-instance-scaling.sh
 ```
 
@@ -1207,7 +1180,6 @@ The comparative write-up lives at:
 The primary-vs-replica / read-model experiment is automated here:
 
 ```bash
-cd /Users/robertkarapetyan/git/project/source/ecommerce-systems-lab
 ./scripts/experiments/run-milestone-8-primary-vs-replica-read-model.sh
 ```
 
@@ -1231,7 +1203,6 @@ The comparative write-up lives at:
 The same-region vs cross-region dependency experiment is automated here:
 
 ```bash
-cd /Users/robertkarapetyan/git/project/source/ecommerce-systems-lab
 ./scripts/experiments/run-milestone-9-same-region-vs-cross-region.sh
 ```
 
@@ -1262,7 +1233,6 @@ The comparative write-up lives at:
 The degraded-mode / failover experiment is automated here:
 
 ```bash
-cd /Users/robertkarapetyan/git/project/source/ecommerce-systems-lab
 ./scripts/experiments/run-milestone-9-degraded-mode-failover.sh
 ```
 

@@ -27,16 +27,15 @@ The measured top-level boundary is still the Storefront product-page request:
 The experiment was produced by:
 
 ```bash
-cd /Users/robertkarapetyan/git/project/source/ecommerce-systems-lab
 ./scripts/experiments/run-milestone-9-degraded-mode-failover.sh
 ```
 
 Generated artifacts live in:
 
-- `/Users/robertkarapetyan/git/project/source/ecommerce-systems-lab/docs/experiments/milestone-9-degraded-mode-failover/artifacts/healthy-west-local/`
-- `/Users/robertkarapetyan/git/project/source/ecommerce-systems-lab/docs/experiments/milestone-9-degraded-mode-failover/artifacts/local-replica-unavailable/`
-- `/Users/robertkarapetyan/git/project/source/ecommerce-systems-lab/docs/experiments/milestone-9-degraded-mode-failover/artifacts/local-catalog-unavailable/`
-- `/Users/robertkarapetyan/git/project/source/ecommerce-systems-lab/docs/experiments/milestone-9-degraded-mode-failover/artifacts/comparison.json`
+- `docs/experiments/milestone-9-degraded-mode-failover/artifacts/healthy-west-local/`
+- `docs/experiments/milestone-9-degraded-mode-failover/artifacts/local-replica-unavailable/`
+- `docs/experiments/milestone-9-degraded-mode-failover/artifacts/local-catalog-unavailable/`
+- `docs/experiments/milestone-9-degraded-mode-failover/artifacts/comparison.json`
 
 ## Topology
 

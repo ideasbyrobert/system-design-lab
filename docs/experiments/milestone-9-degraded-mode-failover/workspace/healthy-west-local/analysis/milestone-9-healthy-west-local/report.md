@@ -4,8 +4,8 @@ Generated: `2026-04-01T08:55:05.4712270+00:00`
 
 ## Inputs
 
-- Requests file: `/Users/robertkarapetyan/git/project/source/ecommerce-systems-lab/docs/experiments/milestone-9-degraded-mode-failover/workspace/healthy-west-local/logs/requests.jsonl`
-- Jobs file: `/Users/robertkarapetyan/git/project/source/ecommerce-systems-lab/docs/experiments/milestone-9-degraded-mode-failover/workspace/healthy-west-local/logs/jobs.jsonl`
+- Requests file: `docs/experiments/milestone-9-degraded-mode-failover/workspace/healthy-west-local/logs/requests.jsonl`
+- Jobs file: `docs/experiments/milestone-9-degraded-mode-failover/workspace/healthy-west-local/logs/jobs.jsonl`
 - Filter run id: `milestone-9-healthy-west-local`
 - Filter from: `n/a`
 - Filter to: `n/a`
