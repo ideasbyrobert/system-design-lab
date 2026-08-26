@@ -36,7 +36,10 @@ internal sealed record StorefrontOrderHistorySnapshot(
     IReadOnlyList<StorefrontOrderHistoryItemInfo> Items)
 {
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
-    public StorefrontOrderHistoryPaymentInfo? Payment { get; init; }
+    public StorefrontOrderHistoryPaymentInfo? Payment
+    {
+        get; init;
+    }
 }
 
 internal sealed record StorefrontOrderHistoryResponse(

@@ -4,7 +4,10 @@ namespace Worker.Jobs;
 
 internal interface IWorkerJobHandler
 {
-    string JobType { get; }
+    string JobType
+    {
+        get;
+    }
 
     Task<WorkerJobExecutionResult> HandleAsync(
         QueueJobRecord job,

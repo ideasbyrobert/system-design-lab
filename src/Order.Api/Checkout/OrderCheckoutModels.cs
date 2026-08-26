@@ -8,12 +8,21 @@ public sealed class OrderCheckoutRequest
 
     public string IdempotencyKey { get; set; } = string.Empty;
 
-    public string? PaymentMode { get; set; }
+    public string? PaymentMode
+    {
+        get; set;
+    }
 
-    public string? PaymentCallbackUrl { get; set; }
+    public string? PaymentCallbackUrl
+    {
+        get; set;
+    }
 
     [JsonIgnore]
-    public bool DebugTelemetryRequested { get; set; }
+    public bool DebugTelemetryRequested
+    {
+        get; set;
+    }
 }
 
 public sealed class OrderPaymentAuthorizationRequest
@@ -22,15 +31,27 @@ public sealed class OrderPaymentAuthorizationRequest
 
     public string OrderId { get; set; } = string.Empty;
 
-    public int AmountCents { get; set; }
+    public int AmountCents
+    {
+        get; set;
+    }
 
     public string Currency { get; set; } = "USD";
 
-    public string? PaymentMode { get; set; }
+    public string? PaymentMode
+    {
+        get; set;
+    }
 
-    public string? CallbackUrl { get; set; }
+    public string? CallbackUrl
+    {
+        get; set;
+    }
 
-    public bool DebugTelemetryRequested { get; set; }
+    public bool DebugTelemetryRequested
+    {
+        get; set;
+    }
 }
 
 internal sealed record OrderRequestInfo(
@@ -57,13 +78,22 @@ internal sealed record OrderCheckoutResponse(
     OrderRequestInfo Request)
 {
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
-    public string? CheckoutMode { get; init; }
+    public string? CheckoutMode
+    {
+        get; init;
+    }
 
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
-    public string? BackgroundJobId { get; init; }
+    public string? BackgroundJobId
+    {
+        get; init;
+    }
 
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
-    public OrderDebugTelemetryInfo? DebugTelemetry { get; init; }
+    public OrderDebugTelemetryInfo? DebugTelemetry
+    {
+        get; init;
+    }
 }
 
 internal sealed record OrderCheckoutFailureResponse(
@@ -76,10 +106,16 @@ internal sealed record OrderCheckoutFailureResponse(
     OrderRequestInfo Request)
 {
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
-    public string? CheckoutMode { get; init; }
+    public string? CheckoutMode
+    {
+        get; init;
+    }
 
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
-    public OrderDebugTelemetryInfo? DebugTelemetry { get; init; }
+    public OrderDebugTelemetryInfo? DebugTelemetry
+    {
+        get; init;
+    }
 }
 
 internal sealed record OrderHostInfoResponse(

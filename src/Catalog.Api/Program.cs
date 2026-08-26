@@ -2,8 +2,8 @@ using Catalog.Api.ProductDetails;
 using Lab.Persistence;
 using Lab.Persistence.DependencyInjection;
 using Lab.Shared.Caching;
-using Lab.Shared.Contracts;
 using Lab.Shared.Configuration;
+using Lab.Shared.Contracts;
 using Lab.Shared.Http;
 using Lab.Shared.Logging;
 using Lab.Shared.RegionalReads;
@@ -195,7 +195,10 @@ app.MapGet("/catalog/products/{id}", async (
         stage.Complete(
             ToCacheOutcomeText(cacheLookup.Outcome),
             RegionalReadPreferenceMetadata.Create(
-                cacheLookup.Product is null ? readPreference : readPreference with { EffectiveReadSource = cacheLookup.Product.ReadSource },
+                cacheLookup.Product is null ? readPreference : readPreference with
+                {
+                    EffectiveReadSource = cacheLookup.Product.ReadSource
+                },
                 new Dictionary<string, string?>
                 {
                     ["expiresUtc"] = cacheLookup.ExpiresUtc?.ToString("O", System.Globalization.CultureInfo.InvariantCulture)
@@ -206,7 +209,10 @@ app.MapGet("/catalog/products/{id}", async (
         "cache_lookup_completed",
         outcome: ToCacheOutcomeText(cacheLookup.Outcome),
         metadata: RegionalReadPreferenceMetadata.Create(
-            cacheLookup.Product is null ? readPreference : readPreference with { EffectiveReadSource = cacheLookup.Product.ReadSource },
+            cacheLookup.Product is null ? readPreference : readPreference with
+            {
+                EffectiveReadSource = cacheLookup.Product.ReadSource
+            },
             new Dictionary<string, string?>
             {
                 ["productId"] = id,
@@ -228,13 +234,19 @@ app.MapGet("/catalog/products/{id}", async (
         trace.MarkCacheHit();
         trace.MarkContractSatisfied();
         trace.AddNote("Catalog cache hit served product detail.");
-        AddReadSelectionNotes(trace, readPreference with { EffectiveReadSource = product.ReadSource });
+        AddReadSelectionNotes(trace, readPreference with
+        {
+            EffectiveReadSource = product.ReadSource
+        });
         trace.RecordInstantStage("freshness_evaluated", metadata: CreateFreshnessMetadata(product.Freshness));
         trace.RecordInstantStage(
             "response_sent",
             outcome: "success",
             metadata: RegionalReadPreferenceMetadata.Create(
-                readPreference with { EffectiveReadSource = product.ReadSource },
+                readPreference with
+                {
+                    EffectiveReadSource = product.ReadSource
+                },
                 new Dictionary<string, string?>
                 {
                     ["statusCode"] = StatusCodes.Status200OK.ToString(),
@@ -300,7 +312,10 @@ app.MapGet("/catalog/products/{id}", async (
         stage.Complete(
             product is null ? "not_found" : "success",
             RegionalReadPreferenceMetadata.Create(
-                product is null ? readPreference : readPreference with { EffectiveReadSource = product.ReadSource },
+                product is null ? readPreference : readPreference with
+                {
+                    EffectiveReadSource = product.ReadSource
+                },
                 new Dictionary<string, string?>
                 {
                     ["found"] = (product is not null).ToString().ToLowerInvariant(),
@@ -322,7 +337,10 @@ app.MapGet("/catalog/products/{id}", async (
         "db_query_completed",
         outcome: product is null ? "not_found" : "success",
         metadata: RegionalReadPreferenceMetadata.Create(
-            product is null ? readPreference : readPreference with { EffectiveReadSource = product.ReadSource },
+            product is null ? readPreference : readPreference with
+            {
+                EffectiveReadSource = product.ReadSource
+            },
             new Dictionary<string, string?>
             {
                 ["productId"] = id,
@@ -339,7 +357,10 @@ app.MapGet("/catalog/products/{id}", async (
         trace.MarkContractSatisfied();
         trace.SetErrorCode("product_not_found");
         trace.AddNote("Catalog query returned no matching product.");
-        AddReadSelectionNotes(trace, product is null ? readPreference : readPreference with { EffectiveReadSource = product.ReadSource });
+        AddReadSelectionNotes(trace, product is null ? readPreference : readPreference with
+        {
+            EffectiveReadSource = product.ReadSource
+        });
         trace.RecordInstantStage(
             "response_sent",
             outcome: "not_found",
@@ -372,7 +393,10 @@ app.MapGet("/catalog/products/{id}", async (
     trace.AddNote(cacheOptions.Enabled
         ? $"Catalog cache miss fell through to {readTarget.DatabaseLabel} and populated the in-memory cache."
         : $"Catalog cache is disabled, so the product detail query went directly to {readTarget.DatabaseLabel}.");
-    AddReadSelectionNotes(trace, readPreference with { EffectiveReadSource = product.ReadSource });
+    AddReadSelectionNotes(trace, readPreference with
+    {
+        EffectiveReadSource = product.ReadSource
+    });
 
     if (readTarget.FallbackApplied &&
         string.Equals(readTarget.FallbackReason, "local_replica_unavailable", StringComparison.Ordinal))
@@ -390,7 +414,10 @@ app.MapGet("/catalog/products/{id}", async (
         "response_sent",
         outcome: "success",
         metadata: RegionalReadPreferenceMetadata.Create(
-            readPreference with { EffectiveReadSource = product.ReadSource },
+            readPreference with
+            {
+                EffectiveReadSource = product.ReadSource
+            },
             new Dictionary<string, string?>
             {
                 ["statusCode"] = StatusCodes.Status200OK.ToString(),

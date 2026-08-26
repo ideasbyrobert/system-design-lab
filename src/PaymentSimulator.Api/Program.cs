@@ -509,13 +509,13 @@ static async Task<(string Outcome, int StatusCode, bool CallbackPending, int Cal
             return ("authorized", StatusCodes.Status200OK, false, 0, null, null);
 
         case PaymentSimulationMode.DelayedConfirmation:
-        {
-            await Task.Delay(Math.Max(0, options.FastLatencyMilliseconds), cancellationToken);
-            DateTimeOffset dueUtc = timeProvider.GetUtcNow().AddMilliseconds(Math.Max(0, options.DelayedConfirmationMilliseconds));
-            store.ScheduleCallbacks(
-                request.PaymentId,
-                [
-                    new ScheduledPaymentCallback(
+            {
+                await Task.Delay(Math.Max(0, options.FastLatencyMilliseconds), cancellationToken);
+                DateTimeOffset dueUtc = timeProvider.GetUtcNow().AddMilliseconds(Math.Max(0, options.DelayedConfirmationMilliseconds));
+                store.ScheduleCallbacks(
+                    request.PaymentId,
+                    [
+                        new ScheduledPaymentCallback(
                         callbackId: $"cb-{Guid.NewGuid():N}",
                         paymentId: request.PaymentId,
                         orderId: request.OrderId,
@@ -526,19 +526,19 @@ static async Task<(string Outcome, int StatusCode, bool CallbackPending, int Cal
                         callbackUrl: attempt.CallbackUrl,
                         sequenceNumber: 1,
                         dueUtc: dueUtc)
-                ]);
+                    ]);
 
-            return ("pending_confirmation", StatusCodes.Status202Accepted, true, 1, null, null);
-        }
+                return ("pending_confirmation", StatusCodes.Status202Accepted, true, 1, null, null);
+            }
 
         case PaymentSimulationMode.DuplicateCallback:
-        {
-            await Task.Delay(Math.Max(0, options.FastLatencyMilliseconds), cancellationToken);
-            DateTimeOffset dueUtc = timeProvider.GetUtcNow().AddMilliseconds(Math.Max(0, options.DelayedConfirmationMilliseconds));
-            store.ScheduleCallbacks(
-                request.PaymentId,
-                [
-                    new ScheduledPaymentCallback(
+            {
+                await Task.Delay(Math.Max(0, options.FastLatencyMilliseconds), cancellationToken);
+                DateTimeOffset dueUtc = timeProvider.GetUtcNow().AddMilliseconds(Math.Max(0, options.DelayedConfirmationMilliseconds));
+                store.ScheduleCallbacks(
+                    request.PaymentId,
+                    [
+                        new ScheduledPaymentCallback(
                         callbackId: $"cb-{Guid.NewGuid():N}",
                         paymentId: request.PaymentId,
                         orderId: request.OrderId,
@@ -560,10 +560,10 @@ static async Task<(string Outcome, int StatusCode, bool CallbackPending, int Cal
                         callbackUrl: attempt.CallbackUrl,
                         sequenceNumber: 2,
                         dueUtc: dueUtc.AddMilliseconds(Math.Max(0, options.DuplicateCallbackSpacingMilliseconds)))
-                ]);
+                    ]);
 
-            return ("pending_confirmation", StatusCodes.Status202Accepted, true, 2, null, null);
-        }
+                return ("pending_confirmation", StatusCodes.Status202Accepted, true, 2, null, null);
+            }
 
         default:
             throw new ArgumentOutOfRangeException(nameof(mode), mode, "Unsupported payment simulation mode.");

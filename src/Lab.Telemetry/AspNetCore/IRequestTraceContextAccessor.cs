@@ -4,5 +4,8 @@ namespace Lab.Telemetry.AspNetCore;
 
 public interface IRequestTraceContextAccessor
 {
-    RequestTraceContext? Current { get; set; }
+    RequestTraceContext? Current
+    {
+        get; set;
+    }
 }

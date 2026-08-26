@@ -20,7 +20,10 @@ public sealed class InMemoryCacheStore : ICacheStore, ICacheSnapshotProvider
         Capacity = capacity;
     }
 
-    public int Capacity { get; }
+    public int Capacity
+    {
+        get;
+    }
 
     public ValueTask<CacheGetResult<T>> GetAsync<T>(CacheScope scope, string key, CancellationToken cancellationToken = default)
     {
@@ -256,13 +259,25 @@ public sealed class InMemoryCacheStore : ICacheStore, ICacheSnapshotProvider
 
     private sealed class CacheMetricsAccumulator
     {
-        public long HitCount { get; private set; }
+        public long HitCount
+        {
+            get; private set;
+        }
 
-        public long MissCount { get; private set; }
+        public long MissCount
+        {
+            get; private set;
+        }
 
-        public double TotalHitLookupMs { get; private set; }
+        public double TotalHitLookupMs
+        {
+            get; private set;
+        }
 
-        public double TotalMissLookupMs { get; private set; }
+        public double TotalMissLookupMs
+        {
+            get; private set;
+        }
 
         public void RecordLookup(bool hit, double lookupMs)
         {

@@ -49,51 +49,120 @@ public sealed class RequestTraceContext
         CorrelationId = correlationId;
     }
 
-    public string RunId { get; }
+    public string RunId
+    {
+        get;
+    }
 
-    public string TraceId { get; }
+    public string TraceId
+    {
+        get;
+    }
 
-    public string SpanId { get; }
+    public string SpanId
+    {
+        get;
+    }
 
-    public string RequestId { get; }
+    public string RequestId
+    {
+        get;
+    }
 
-    public string Service { get; }
+    public string Service
+    {
+        get;
+    }
 
-    public string Region { get; }
+    public string Region
+    {
+        get;
+    }
 
-    public string Route { get; }
+    public string Route
+    {
+        get;
+    }
 
-    public string Method { get; }
+    public string Method
+    {
+        get;
+    }
 
-    public OperationContractDescriptor Contract { get; private set; }
+    public OperationContractDescriptor Contract
+    {
+        get; private set;
+    }
 
-    public DateTimeOffset ArrivalUtc { get; }
+    public DateTimeOffset ArrivalUtc
+    {
+        get;
+    }
 
-    public DateTimeOffset StartUtc { get; }
+    public DateTimeOffset StartUtc
+    {
+        get;
+    }
 
-    public bool ContractSatisfied { get; private set; }
+    public bool ContractSatisfied
+    {
+        get; private set;
+    }
 
-    public bool CacheHit { get; private set; }
+    public bool CacheHit
+    {
+        get; private set;
+    }
 
-    public bool RateLimited { get; private set; }
+    public bool RateLimited
+    {
+        get; private set;
+    }
 
-    public string? ErrorCode { get; private set; }
+    public string? ErrorCode
+    {
+        get; private set;
+    }
 
-    public string? UserId { get; private set; }
+    public string? UserId
+    {
+        get; private set;
+    }
 
-    public string? SessionKey { get; private set; }
+    public string? SessionKey
+    {
+        get; private set;
+    }
 
-    public string? CorrelationId { get; private set; }
+    public string? CorrelationId
+    {
+        get; private set;
+    }
 
-    public string? ReadSource { get; private set; }
+    public string? ReadSource
+    {
+        get; private set;
+    }
 
-    public int? FreshnessComparedCount { get; private set; }
+    public int? FreshnessComparedCount
+    {
+        get; private set;
+    }
 
-    public int? FreshnessStaleCount { get; private set; }
+    public int? FreshnessStaleCount
+    {
+        get; private set;
+    }
 
-    public double? FreshnessStaleFraction { get; private set; }
+    public double? FreshnessStaleFraction
+    {
+        get; private set;
+    }
 
-    public double? MaxStalenessAgeMs { get; private set; }
+    public double? MaxStalenessAgeMs
+    {
+        get; private set;
+    }
 
     public IReadOnlyList<StageTimingRecord> StageTimings => _stageTimings.AsReadOnly();
 

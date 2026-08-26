@@ -1,5 +1,5 @@
-using System.Text.Json;
 using System.Net.Http.Json;
+using System.Text.Json;
 using Lab.Analysis.Models;
 using Lab.Analysis.Services;
 using Lab.Persistence;
@@ -40,7 +40,9 @@ public sealed class QueueBacklogAnalysisTests
         WorkerQueueProcessor processor = workerHost.Services.GetRequiredService<WorkerQueueProcessor>();
         Assert.AreEqual(1, await processor.ProcessAvailableJobsAsync(CancellationToken.None));
 
-        using ILoggerFactory loggerFactory = LoggerFactory.Create(builder => { });
+        using ILoggerFactory loggerFactory = LoggerFactory.Create(builder =>
+        {
+        });
         TelemetryAnalyzer analyzer = new(
             new TelemetryJsonlReader(loggerFactory.CreateLogger<TelemetryJsonlReader>()),
             new QueueMetricsReader(),

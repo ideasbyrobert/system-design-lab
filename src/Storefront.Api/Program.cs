@@ -2,11 +2,12 @@ using System.Text.Json;
 using Lab.Persistence.DependencyInjection;
 using Lab.Shared.Caching;
 using Lab.Shared.Checkout;
-using Lab.Shared.Contracts;
 using Lab.Shared.Configuration;
+using Lab.Shared.Contracts;
 using Lab.Shared.Http;
 using Lab.Shared.Logging;
 using Lab.Shared.Networking;
+using Lab.Shared.RateLimiting;
 using Lab.Shared.RegionalReads;
 using Lab.Telemetry.AspNetCore;
 using Lab.Telemetry.DependencyInjection;
@@ -21,7 +22,6 @@ using Storefront.Api.OrderHistory;
 using Storefront.Api.ProductPages;
 using Storefront.Api.RateLimiting;
 using Storefront.Api.Routing;
-using Lab.Shared.RateLimiting;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddLabConfiguration(builder.Configuration, builder.Environment);
@@ -1838,7 +1838,10 @@ static RegionalReadPreference CreateProductReadPreference(
     string? effectiveReadSource = null) =>
     string.IsNullOrWhiteSpace(effectiveReadSource)
         ? readPreference
-        : readPreference with { EffectiveReadSource = effectiveReadSource.Trim() };
+        : readPreference with
+        {
+            EffectiveReadSource = effectiveReadSource.Trim()
+        };
 
 static IReadOnlyDictionary<string, string?> CreateFreshnessMetadata(StorefrontReadFreshnessInfo freshness) =>
     new Dictionary<string, string?>

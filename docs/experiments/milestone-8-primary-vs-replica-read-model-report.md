@@ -39,9 +39,9 @@ The experiment was produced by:
 
 Generated artifacts:
 
-- `docs/experiments/milestone-8-primary-vs-replica-read-model/artifacts/product-reads/`
-- `docs/experiments/milestone-8-primary-vs-replica-read-model/artifacts/order-history/`
-- `docs/experiments/milestone-8-primary-vs-replica-read-model/artifacts/comparison.json`
+- `/tmp/system-design-lab-experiments/milestone-8-primary-vs-replica-read-model/artifacts/product-reads/`
+- `/tmp/system-design-lab-experiments/milestone-8-primary-vs-replica-read-model/artifacts/order-history/`
+- `/tmp/system-design-lab-experiments/milestone-8-primary-vs-replica-read-model/artifacts/comparison.json`
 
 ## Topology
 

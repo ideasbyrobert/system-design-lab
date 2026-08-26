@@ -3,8 +3,9 @@
 set -euo pipefail
 
 PROJECT_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
-WORKSPACE_ROOT="${LAB_EXPERIMENT_ROOT:-$PROJECT_ROOT/docs/experiments/milestone-4-synchronous-checkout/workspace}"
-ARTIFACT_ROOT="$PROJECT_ROOT/docs/experiments/milestone-4-synchronous-checkout/artifacts"
+OUTPUT_ROOT="${LAB_EXPERIMENT_OUTPUT_ROOT:-/tmp/system-design-lab-experiments/milestone-4-synchronous-checkout}"
+WORKSPACE_ROOT="${LAB_EXPERIMENT_ROOT:-$OUTPUT_ROOT/workspace}"
+ARTIFACT_ROOT="$OUTPUT_ROOT/artifacts"
 CART_URL="${LAB_CART_URL:-http://127.0.0.1:5085}"
 PAYMENT_URL="${LAB_PAYMENT_URL:-http://127.0.0.1:5086}"
 ORDER_URL="${LAB_ORDER_URL:-http://127.0.0.1:5087}"
@@ -20,7 +21,8 @@ CART_LOG_PATH="$ARTIFACT_ROOT/cart.log"
 PAYMENT_LOG_PATH="$ARTIFACT_ROOT/payment-simulator.log"
 ORDER_LOG_PATH="$ARTIFACT_ROOT/order.log"
 
-cleanup() {
+cleanup()
+{
     if [[ -n "${ORDER_PID:-}" ]] && kill -0 "$ORDER_PID" 2>/dev/null; then
         kill "$ORDER_PID" 2>/dev/null || true
         wait "$ORDER_PID" 2>/dev/null || true
@@ -39,7 +41,8 @@ cleanup() {
 
 trap cleanup EXIT
 
-wait_for_http() {
+wait_for_http()
+{
     local url="$1"
     local process_id="$2"
     local log_path="$3"
@@ -64,7 +67,8 @@ wait_for_http() {
     done
 }
 
-add_cart_item() {
+add_cart_item()
+{
     local run_id="$1"
     local user_id="$2"
     local product_id="$3"
@@ -86,7 +90,8 @@ add_cart_item() {
     fi
 }
 
-analyze_run() {
+analyze_run()
+{
     local run_id="$1"
     local operation="$2"
     local suffix="$3"
@@ -100,7 +105,8 @@ analyze_run() {
     cp "$WORKSPACE_ROOT/analysis/$run_id/report.md" "$ARTIFACT_ROOT/${run_id}-${suffix}-analysis.md"
 }
 
-run_checkout_case() {
+run_checkout_case()
+{
     local run_id="$1"
     local user_id="$2"
     local product_id="$3"
@@ -137,7 +143,8 @@ run_checkout_case() {
     analyze_run "$run_id" "payment-authorize" "payment"
 }
 
-warm_up_checkout_path() {
+warm_up_checkout_path()
+{
     local run_id="$1"
     local user_id="$2"
     local product_id="$3"

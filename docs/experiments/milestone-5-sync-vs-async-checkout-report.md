@@ -78,12 +78,12 @@ The experiment was produced by:
 
 Generated artifacts:
 
-- `docs/experiments/milestone-5-sync-vs-async-checkout/artifacts/sync/`
-- `docs/experiments/milestone-5-sync-vs-async-checkout/artifacts/async/`
-- `docs/experiments/milestone-5-sync-vs-async-checkout/workspace/sync/logs/requests.jsonl`
-- `docs/experiments/milestone-5-sync-vs-async-checkout/workspace/async/logs/requests.jsonl`
-- `docs/experiments/milestone-5-sync-vs-async-checkout/workspace/sync/logs/jobs.jsonl`
-- `docs/experiments/milestone-5-sync-vs-async-checkout/workspace/async/logs/jobs.jsonl`
+- `/tmp/system-design-lab-experiments/milestone-5-sync-vs-async-checkout/artifacts/sync/`
+- `/tmp/system-design-lab-experiments/milestone-5-sync-vs-async-checkout/artifacts/async/`
+- `/tmp/system-design-lab-experiments/milestone-5-sync-vs-async-checkout/workspace/sync/logs/requests.jsonl`
+- `/tmp/system-design-lab-experiments/milestone-5-sync-vs-async-checkout/workspace/async/logs/requests.jsonl`
+- `/tmp/system-design-lab-experiments/milestone-5-sync-vs-async-checkout/workspace/sync/logs/jobs.jsonl`
+- `/tmp/system-design-lab-experiments/milestone-5-sync-vs-async-checkout/workspace/async/logs/jobs.jsonl`
 
 ## Workload
 

@@ -1,7 +1,7 @@
-﻿using Lab.Persistence.Seeding;
+using Lab.Persistence.DependencyInjection;
 using Lab.Persistence.Projections;
 using Lab.Persistence.Replication;
-using Lab.Persistence.DependencyInjection;
+using Lab.Persistence.Seeding;
 using Lab.Shared.Configuration;
 using Lab.Shared.Logging;
 using Microsoft.Extensions.DependencyInjection;

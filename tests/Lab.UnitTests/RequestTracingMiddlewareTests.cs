@@ -13,7 +13,9 @@ public sealed class RequestTracingMiddlewareTests
     [TestMethod]
     public async Task InvokeAsync_WhenNextThrows_PersistsA500TraceWithErrorMetadata()
     {
-        using ILoggerFactory loggerFactory = LoggerFactory.Create(builder => { });
+        using ILoggerFactory loggerFactory = LoggerFactory.Create(builder =>
+        {
+        });
         RequestTracingMiddleware middleware = new(
             _ => throw new InvalidOperationException("boom"),
             loggerFactory.CreateLogger<RequestTracingMiddleware>());
@@ -60,7 +62,9 @@ public sealed class RequestTracingMiddlewareTests
     [TestMethod]
     public async Task InvokeAsync_IgnoresRequestAbortedWhenPersistingTrace()
     {
-        using ILoggerFactory loggerFactory = LoggerFactory.Create(builder => { });
+        using ILoggerFactory loggerFactory = LoggerFactory.Create(builder =>
+        {
+        });
         RequestTracingMiddleware middleware = new(
             _ => Task.CompletedTask,
             loggerFactory.CreateLogger<RequestTracingMiddleware>());
@@ -91,13 +95,19 @@ public sealed class RequestTracingMiddlewareTests
 
     private sealed class TestRequestTraceContextAccessor : IRequestTraceContextAccessor
     {
-        public RequestTraceContext? Current { get; set; }
+        public RequestTraceContext? Current
+        {
+            get; set;
+        }
     }
 
     private sealed class CapturingRequestTraceWriter : IRequestTraceWriter
     {
         public RequestTraceRecord Record { get; private set; } = null!;
-        public CancellationToken CancellationToken { get; private set; }
+        public CancellationToken CancellationToken
+        {
+            get; private set;
+        }
 
         public ValueTask<bool> WriteAsync(RequestTraceRecord traceRecord, CancellationToken cancellationToken = default)
         {

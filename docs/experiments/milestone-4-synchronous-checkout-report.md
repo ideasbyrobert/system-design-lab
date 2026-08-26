@@ -44,7 +44,7 @@ That filter is important because `requests.jsonl` still contains direct traces f
 - one `PaymentSimulator.Api` process acting as the external payment-provider boundary
 - one `Order.Api` process owning synchronous checkout
 - one clean SQLite `primary.db`
-- one clean experiment workspace under `docs/experiments/milestone-4-synchronous-checkout/workspace`
+- one clean experiment workspace under `/tmp/system-design-lab-experiments/milestone-4-synchronous-checkout/workspace`
 - one warm-up checkout before the measured runs to avoid cold-start distortion
 
 The experiment was produced by:
@@ -55,15 +55,15 @@ The experiment was produced by:
 
 Generated artifacts:
 
-- `docs/experiments/milestone-4-synchronous-checkout/artifacts/milestone-4-sync-fast-success-checkout-summary.json`
-- `docs/experiments/milestone-4-synchronous-checkout/artifacts/milestone-4-sync-slow-success-checkout-summary.json`
-- `docs/experiments/milestone-4-synchronous-checkout/artifacts/milestone-4-sync-timeout-checkout-summary.json`
-- `docs/experiments/milestone-4-synchronous-checkout/artifacts/milestone-4-sync-transient-failure-checkout-summary.json`
-- `docs/experiments/milestone-4-synchronous-checkout/artifacts/milestone-4-sync-fast-success-response.json`
-- `docs/experiments/milestone-4-synchronous-checkout/artifacts/milestone-4-sync-slow-success-response.json`
-- `docs/experiments/milestone-4-synchronous-checkout/artifacts/milestone-4-sync-timeout-response.json`
-- `docs/experiments/milestone-4-synchronous-checkout/artifacts/milestone-4-sync-transient-failure-response.json`
-- `docs/experiments/milestone-4-synchronous-checkout/artifacts/requests.jsonl`
+- `/tmp/system-design-lab-experiments/milestone-4-synchronous-checkout/artifacts/milestone-4-sync-fast-success-checkout-summary.json`
+- `/tmp/system-design-lab-experiments/milestone-4-synchronous-checkout/artifacts/milestone-4-sync-slow-success-checkout-summary.json`
+- `/tmp/system-design-lab-experiments/milestone-4-synchronous-checkout/artifacts/milestone-4-sync-timeout-checkout-summary.json`
+- `/tmp/system-design-lab-experiments/milestone-4-synchronous-checkout/artifacts/milestone-4-sync-transient-failure-checkout-summary.json`
+- `/tmp/system-design-lab-experiments/milestone-4-synchronous-checkout/artifacts/milestone-4-sync-fast-success-response.json`
+- `/tmp/system-design-lab-experiments/milestone-4-synchronous-checkout/artifacts/milestone-4-sync-slow-success-response.json`
+- `/tmp/system-design-lab-experiments/milestone-4-synchronous-checkout/artifacts/milestone-4-sync-timeout-response.json`
+- `/tmp/system-design-lab-experiments/milestone-4-synchronous-checkout/artifacts/milestone-4-sync-transient-failure-response.json`
+- `/tmp/system-design-lab-experiments/milestone-4-synchronous-checkout/artifacts/requests.jsonl`
 
 ## Workload
 

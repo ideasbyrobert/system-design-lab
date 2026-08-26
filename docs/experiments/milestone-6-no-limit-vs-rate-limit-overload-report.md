@@ -63,9 +63,9 @@ The experiment was produced by:
 
 Generated artifacts:
 
-- `docs/experiments/milestone-6-no-limit-vs-rate-limit-overload/artifacts/no-limit/`
-- `docs/experiments/milestone-6-no-limit-vs-rate-limit-overload/artifacts/rate-limit/`
-- `docs/experiments/milestone-6-no-limit-vs-rate-limit-overload/artifacts/comparison.json`
+- `/tmp/system-design-lab-experiments/milestone-6-no-limit-vs-rate-limit-overload/artifacts/no-limit/`
+- `/tmp/system-design-lab-experiments/milestone-6-no-limit-vs-rate-limit-overload/artifacts/rate-limit/`
+- `/tmp/system-design-lab-experiments/milestone-6-no-limit-vs-rate-limit-overload/artifacts/comparison.json`
 
 ## Workload
 

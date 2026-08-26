@@ -19,7 +19,10 @@ internal sealed class StorefrontProductDetailCache
         Scope = CacheScope.Create("storefront-product-page", layout.CurrentRegion);
     }
 
-    public CacheScope Scope { get; }
+    public CacheScope Scope
+    {
+        get;
+    }
 
     public ValueTask<CacheGetResult<CatalogProductSnapshot>> GetAsync(
         string readSource,

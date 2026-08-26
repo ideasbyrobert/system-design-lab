@@ -3,7 +3,7 @@
 set -euo pipefail
 
 PROJECT_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
-EXPERIMENT_ROOT="$PROJECT_ROOT/docs/experiments/milestone-8-primary-vs-replica-read-model"
+EXPERIMENT_ROOT="${LAB_EXPERIMENT_OUTPUT_ROOT:-/tmp/system-design-lab-experiments/milestone-8-primary-vs-replica-read-model}"
 WORKSPACE_ROOT="${LAB_EXPERIMENT_ROOT:-$EXPERIMENT_ROOT/workspace}"
 ARTIFACT_ROOT="$EXPERIMENT_ROOT/artifacts"
 COMPARISON_PATH="$ARTIFACT_ROOT/comparison.json"
@@ -75,7 +75,8 @@ ORDER_HISTORY_ORDER_PID=""
 ORDER_HISTORY_STOREFRONT_PID=""
 ORDER_HISTORY_WORKER_PID=""
 
-reset_service_pids() {
+reset_service_pids()
+{
     PRODUCT_CATALOG_PID=""
     PRODUCT_STOREFRONT_PID=""
     ORDER_HISTORY_CART_PID=""
@@ -85,7 +86,8 @@ reset_service_pids() {
     ORDER_HISTORY_WORKER_PID=""
 }
 
-stop_services() {
+stop_services()
+{
     local pid
 
     for pid in \
@@ -105,7 +107,8 @@ stop_services() {
     reset_service_pids
 }
 
-stop_order_history_worker() {
+stop_order_history_worker()
+{
     if [[ -n "$ORDER_HISTORY_WORKER_PID" ]] && kill -0 "$ORDER_HISTORY_WORKER_PID" 2>/dev/null; then
         kill "$ORDER_HISTORY_WORKER_PID" 2>/dev/null || true
         wait "$ORDER_HISTORY_WORKER_PID" 2>/dev/null || true
@@ -114,13 +117,15 @@ stop_order_history_worker() {
     ORDER_HISTORY_WORKER_PID=""
 }
 
-cleanup() {
+cleanup()
+{
     stop_services
 }
 
 trap cleanup EXIT
 
-wait_for_http() {
+wait_for_http()
+{
     local url="$1"
     local process_id="$2"
     local log_path="$3"
@@ -145,7 +150,8 @@ wait_for_http() {
     done
 }
 
-prepare_workspace() {
+prepare_workspace()
+{
     local workspace="$1"
     local artifact_dir="$2"
 
@@ -153,7 +159,8 @@ prepare_workspace() {
     mkdir -p "$workspace" "$artifact_dir"
 }
 
-run_loadgen() {
+run_loadgen()
+{
     local workspace="$1"
     local target_url="$2"
     local run_id="$3"
@@ -172,7 +179,8 @@ run_loadgen() {
         --run-id "$run_id" > "$artifact_dir/${run_id}-loadgen.txt" 2>&1
 }
 
-analyze_run() {
+analyze_run()
+{
     local workspace="$1"
     local artifact_dir="$2"
     local run_id="$3"
@@ -188,7 +196,8 @@ analyze_run() {
     cp "$workspace/analysis/$run_id/report.md" "$artifact_dir/${run_id}-${suffix}-analysis.md"
 }
 
-copy_workspace_logs() {
+copy_workspace_logs()
+{
     local workspace="$1"
     local artifact_dir="$2"
 
@@ -212,7 +221,8 @@ copy_workspace_logs() {
     fi
 }
 
-capture_get_json() {
+capture_get_json()
+{
     local url="$1"
     local run_id="$2"
     local correlation_id="$3"
@@ -232,7 +242,8 @@ capture_get_json() {
     fi
 }
 
-sync_replicas() {
+sync_replicas()
+{
     local workspace="$1"
     local artifact_dir="$2"
     local label="$3"
@@ -245,7 +256,8 @@ sync_replicas() {
         --replica-west-lag-ms 0 > "$artifact_dir/${label}-sync-replicas.txt" 2>&1
 }
 
-mutate_primary_product() {
+mutate_primary_product()
+{
     local workspace="$1"
     local product_id="$2"
     local product_version="$3"
@@ -296,7 +308,8 @@ finally:
 PY
 }
 
-query_order_history_queue_count() {
+query_order_history_queue_count()
+{
     local workspace="$1"
 
     python3 - "$workspace" <<'PY'
@@ -322,7 +335,8 @@ finally:
 PY
 }
 
-wait_for_order_history_queue_drain() {
+wait_for_order_history_queue_drain()
+{
     local workspace="$1"
     local timeout_seconds="$2"
 
@@ -362,7 +376,8 @@ sys.exit(1)
 PY
 }
 
-add_cart_item() {
+add_cart_item()
+{
     local cart_url="$1"
     local run_id="$2"
     local user_id="$3"
@@ -386,7 +401,8 @@ add_cart_item() {
     fi
 }
 
-run_sync_checkout_batch() {
+run_sync_checkout_batch()
+{
     local storefront_url="$1"
     local run_id="$2"
     local request_count="$3"
@@ -479,7 +495,8 @@ print(json.dumps(summary, indent=2))
 PY
 }
 
-run_single_checkout() {
+run_single_checkout()
+{
     local storefront_url="$1"
     local run_id="$2"
     local user_id="$3"
@@ -503,7 +520,8 @@ run_single_checkout() {
     fi
 }
 
-start_product_services() {
+start_product_services()
+{
     local workspace="$1"
     local artifact_dir="$2"
 
@@ -522,7 +540,8 @@ start_product_services() {
     wait_for_http "$PRODUCT_STOREFRONT_URL/health" "$PRODUCT_STOREFRONT_PID" "$artifact_dir/storefront.stdout.log" "Storefront.Api"
 }
 
-start_order_history_services() {
+start_order_history_services()
+{
     local workspace="$1"
     local artifact_dir="$2"
 
@@ -554,7 +573,8 @@ start_order_history_services() {
     wait_for_http "$ORDER_HISTORY_STOREFRONT_URL/health" "$ORDER_HISTORY_STOREFRONT_PID" "$artifact_dir/storefront.stdout.log" "Storefront.Api"
 }
 
-start_order_history_worker() {
+start_order_history_worker()
+{
     local workspace="$1"
     local artifact_dir="$2"
 
@@ -573,7 +593,8 @@ start_order_history_worker() {
     fi
 }
 
-run_product_scenario() {
+run_product_scenario()
+{
     prepare_workspace "$PRODUCT_WORKSPACE" "$PRODUCT_ARTIFACT_ROOT"
 
     LAB__Repository__RootPath="$PRODUCT_WORKSPACE" \
@@ -664,7 +685,8 @@ run_product_scenario() {
     fi
 }
 
-run_order_history_scenario() {
+run_order_history_scenario()
+{
     prepare_workspace "$ORDER_HISTORY_WORKSPACE" "$ORDER_HISTORY_ARTIFACT_ROOT"
 
     LAB__Repository__RootPath="$ORDER_HISTORY_WORKSPACE" \
@@ -768,7 +790,8 @@ run_order_history_scenario() {
     fi
 }
 
-write_comparison_json() {
+write_comparison_json()
+{
     python3 - \
         "$PRODUCT_ARTIFACT_ROOT" \
         "$ORDER_HISTORY_ARTIFACT_ROOT" \

@@ -35,10 +35,10 @@ The experiment was produced by:
 
 Generated artifacts live in:
 
-- `docs/experiments/milestone-9-same-region-vs-cross-region/artifacts/east-local/`
-- `docs/experiments/milestone-9-same-region-vs-cross-region/artifacts/west-local/`
-- `docs/experiments/milestone-9-same-region-vs-cross-region/artifacts/west-forced-east/`
-- `docs/experiments/milestone-9-same-region-vs-cross-region/artifacts/comparison.json`
+- `/tmp/system-design-lab-experiments/milestone-9-same-region-vs-cross-region/artifacts/east-local/`
+- `/tmp/system-design-lab-experiments/milestone-9-same-region-vs-cross-region/artifacts/west-local/`
+- `/tmp/system-design-lab-experiments/milestone-9-same-region-vs-cross-region/artifacts/west-forced-east/`
+- `/tmp/system-design-lab-experiments/milestone-9-same-region-vs-cross-region/artifacts/comparison.json`
 
 ## Topology
 

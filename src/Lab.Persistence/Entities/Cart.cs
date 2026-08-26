@@ -10,9 +10,15 @@ public sealed class Cart
 
     public string Status { get; set; } = string.Empty;
 
-    public DateTimeOffset CreatedUtc { get; set; }
+    public DateTimeOffset CreatedUtc
+    {
+        get; set;
+    }
 
-    public DateTimeOffset UpdatedUtc { get; set; }
+    public DateTimeOffset UpdatedUtc
+    {
+        get; set;
+    }
 
     public User User { get; set; } = null!;
 

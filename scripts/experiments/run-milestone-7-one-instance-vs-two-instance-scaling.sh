@@ -3,7 +3,7 @@
 set -euo pipefail
 
 PROJECT_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
-EXPERIMENT_ROOT="$PROJECT_ROOT/docs/experiments/milestone-7-one-instance-vs-two-instance-scaling"
+EXPERIMENT_ROOT="${LAB_EXPERIMENT_OUTPUT_ROOT:-/tmp/system-design-lab-experiments/milestone-7-one-instance-vs-two-instance-scaling}"
 WORKSPACE_ROOT="${LAB_EXPERIMENT_ROOT:-$EXPERIMENT_ROOT/workspace}"
 ARTIFACT_ROOT="$EXPERIMENT_ROOT/artifacts"
 COMPARISON_PATH="$ARTIFACT_ROOT/comparison.json"
@@ -63,7 +63,8 @@ CART_PID=""
 PAYMENT_PID=""
 ORDER_PID=""
 
-reset_service_pids() {
+reset_service_pids()
+{
     STOREFRONT_A_PID=""
     STOREFRONT_B_PID=""
     PROXY_PID=""
@@ -72,7 +73,8 @@ reset_service_pids() {
     ORDER_PID=""
 }
 
-stop_services() {
+stop_services()
+{
     local pid
 
     for pid in "$PROXY_PID" "$STOREFRONT_B_PID" "$STOREFRONT_A_PID" "$ORDER_PID" "$PAYMENT_PID" "$CART_PID"; do
@@ -85,13 +87,15 @@ stop_services() {
     reset_service_pids
 }
 
-cleanup() {
+cleanup()
+{
     stop_services
 }
 
 trap cleanup EXIT
 
-wait_for_http() {
+wait_for_http()
+{
     local url="$1"
     local process_id="$2"
     local log_path="$3"
@@ -116,7 +120,8 @@ wait_for_http() {
     done
 }
 
-prepare_workspace() {
+prepare_workspace()
+{
     local workspace="$1"
     local artifact_dir="$2"
 
@@ -124,7 +129,8 @@ prepare_workspace() {
     mkdir -p "$workspace" "$artifact_dir"
 }
 
-seed_workspace() {
+seed_workspace()
+{
     local workspace="$1"
     local artifact_dir="$2"
     local product_count="$3"
@@ -137,7 +143,8 @@ seed_workspace() {
         --reset true > "$artifact_dir/seed-data.txt" 2>&1
 }
 
-start_storefront_instances() {
+start_storefront_instances()
+{
     local workspace="$1"
     local artifact_dir="$2"
     local instance_count="$3"
@@ -164,7 +171,8 @@ start_storefront_instances() {
     fi
 }
 
-start_proxy() {
+start_proxy()
+{
     local workspace="$1"
     local artifact_dir="$2"
     local storefront_count="$3"
@@ -189,7 +197,8 @@ start_proxy() {
     curl -fsS "$PROXY_URL/proxy/status" > "$artifact_dir/proxy-status.json"
 }
 
-start_checkout_dependencies() {
+start_checkout_dependencies()
+{
     local workspace="$1"
     local artifact_dir="$2"
 
@@ -217,7 +226,8 @@ start_checkout_dependencies() {
     wait_for_http "$ORDER_URL/" "$ORDER_PID" "$artifact_dir/order.stdout.log" "Order.Api"
 }
 
-ensure_cart_contains_item() {
+ensure_cart_contains_item()
+{
     local run_id="$1"
     local user_id="$2"
     local product_id="$3"
@@ -240,7 +250,8 @@ ensure_cart_contains_item() {
     fi
 }
 
-warm_up_cpu_path() {
+warm_up_cpu_path()
+{
     local run_id="$1"
     local artifact_dir="$2"
     local body_path="$artifact_dir/${run_id}-response.json"
@@ -258,7 +269,8 @@ warm_up_cpu_path() {
     fi
 }
 
-run_cpu_load() {
+run_cpu_load()
+{
     local workspace="$1"
     local artifact_dir="$2"
     local run_id="$3"
@@ -273,7 +285,8 @@ run_cpu_load() {
         --run-id "$run_id" > "$artifact_dir/${run_id}-loadgen.txt" 2>&1
 }
 
-warm_up_checkout_path() {
+warm_up_checkout_path()
+{
     local run_id="$1"
     local user_id="$2"
     local payment_mode="$3"
@@ -296,7 +309,8 @@ warm_up_checkout_path() {
     fi
 }
 
-run_checkout_load() {
+run_checkout_load()
+{
     local run_id="$1"
     local artifact_dir="$2"
 
@@ -470,7 +484,8 @@ print(json.dumps(summary, indent=2))
 PY
 }
 
-analyze_run() {
+analyze_run()
+{
     local workspace="$1"
     local artifact_dir="$2"
     local run_id="$3"
@@ -486,7 +501,8 @@ analyze_run() {
     cp "$workspace/analysis/$run_id/report.md" "$artifact_dir/${run_id}-${suffix}-analysis.md"
 }
 
-copy_workspace_logs() {
+copy_workspace_logs()
+{
     local workspace="$1"
     local artifact_dir="$2"
 
@@ -510,7 +526,8 @@ copy_workspace_logs() {
     fi
 }
 
-write_proxy_backend_counts() {
+write_proxy_backend_counts()
+{
     local workspace="$1"
     local artifact_dir="$2"
     local run_id="$3"
@@ -550,7 +567,8 @@ print(json.dumps(payload, indent=2))
 PY
 }
 
-run_cpu_arm() {
+run_cpu_arm()
+{
     local instance_count="$1"
     local workspace="$2"
     local artifact_dir="$3"
@@ -573,7 +591,8 @@ run_cpu_arm() {
     write_proxy_backend_counts "$workspace" "$artifact_dir" "$run_id" > "$artifact_dir/${run_id}-proxy-backends.txt"
 }
 
-run_checkout_arm() {
+run_checkout_arm()
+{
     local instance_count="$1"
     local workspace="$2"
     local artifact_dir="$3"
@@ -618,7 +637,8 @@ run_checkout_arm() {
     write_proxy_backend_counts "$workspace" "$artifact_dir" "$run_id" > "$artifact_dir/${run_id}-proxy-backends.txt"
 }
 
-write_comparison_json() {
+write_comparison_json()
+{
     python3 - \
         "$CPU_ONE_ARTIFACT_ROOT" \
         "$CPU_TWO_ARTIFACT_ROOT" \

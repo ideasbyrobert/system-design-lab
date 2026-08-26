@@ -2,7 +2,10 @@ namespace Lab.Shared.Contracts;
 
 public static class BusinessOperationContracts
 {
-    public static OperationContractDescriptor StorefrontHostInfo { get; } = OperationContractDescriptor.Create(
+    public static OperationContractDescriptor StorefrontHostInfo
+    {
+        get;
+    } = OperationContractDescriptor.Create(
         operationName: "storefront-host-info",
         inputs:
         [
@@ -24,7 +27,10 @@ public static class BusinessOperationContracts
         observationStart: "The host-info request arrives at Storefront.Api.",
         observationEnd: "Storefront.Api sends the HTTP response for the host-info request.");
 
-    public static OperationContractDescriptor CatalogHostInfo { get; } = OperationContractDescriptor.Create(
+    public static OperationContractDescriptor CatalogHostInfo
+    {
+        get;
+    } = OperationContractDescriptor.Create(
         operationName: "catalog-host-info",
         inputs:
         [
@@ -46,7 +52,10 @@ public static class BusinessOperationContracts
         observationStart: "The host-info request arrives at Catalog.Api.",
         observationEnd: "Catalog.Api sends the HTTP response for the host-info request.");
 
-    public static OperationContractDescriptor CartHostInfo { get; } = OperationContractDescriptor.Create(
+    public static OperationContractDescriptor CartHostInfo
+    {
+        get;
+    } = OperationContractDescriptor.Create(
         operationName: "cart-host-info",
         inputs:
         [
@@ -68,7 +77,10 @@ public static class BusinessOperationContracts
         observationStart: "The host-info request arrives at Cart.Api.",
         observationEnd: "Cart.Api sends the HTTP response for the host-info request.");
 
-    public static OperationContractDescriptor PaymentSimulatorHostInfo { get; } = OperationContractDescriptor.Create(
+    public static OperationContractDescriptor PaymentSimulatorHostInfo
+    {
+        get;
+    } = OperationContractDescriptor.Create(
         operationName: "payment-simulator-host-info",
         inputs:
         [
@@ -90,7 +102,10 @@ public static class BusinessOperationContracts
         observationStart: "The host-info request arrives at PaymentSimulator.Api.",
         observationEnd: "PaymentSimulator.Api sends the HTTP response for the host-info request.");
 
-    public static OperationContractDescriptor OrderHostInfo { get; } = OperationContractDescriptor.Create(
+    public static OperationContractDescriptor OrderHostInfo
+    {
+        get;
+    } = OperationContractDescriptor.Create(
         operationName: "order-host-info",
         inputs:
         [
@@ -112,7 +127,10 @@ public static class BusinessOperationContracts
         observationStart: "The host-info request arrives at Order.Api.",
         observationEnd: "Order.Api sends the HTTP response for the host-info request.");
 
-    public static OperationContractDescriptor HealthCheck { get; } = OperationContractDescriptor.Create(
+    public static OperationContractDescriptor HealthCheck
+    {
+        get;
+    } = OperationContractDescriptor.Create(
         operationName: "health-check",
         inputs:
         [
@@ -133,7 +151,10 @@ public static class BusinessOperationContracts
         observationStart: "The health request arrives at Storefront.Api.",
         observationEnd: "Storefront.Api sends the HTTP response for the health request.");
 
-    public static OperationContractDescriptor CpuBoundLab { get; } = OperationContractDescriptor.Create(
+    public static OperationContractDescriptor CpuBoundLab
+    {
+        get;
+    } = OperationContractDescriptor.Create(
         operationName: "cpu-bound-lab",
         inputs:
         [
@@ -157,7 +178,10 @@ public static class BusinessOperationContracts
         observationStart: "The CPU lab request arrives at Storefront.Api.",
         observationEnd: "Storefront.Api sends the HTTP response for the CPU lab request.");
 
-    public static OperationContractDescriptor IoBoundLab { get; } = OperationContractDescriptor.Create(
+    public static OperationContractDescriptor IoBoundLab
+    {
+        get;
+    } = OperationContractDescriptor.Create(
         operationName: "io-bound-lab",
         inputs:
         [
@@ -181,7 +205,10 @@ public static class BusinessOperationContracts
         observationStart: "The I/O lab request arrives at Storefront.Api.",
         observationEnd: "Storefront.Api sends the HTTP response for the I/O lab request.");
 
-    public static OperationContractDescriptor ProductPage { get; } = OperationContractDescriptor.Create(
+    public static OperationContractDescriptor ProductPage
+    {
+        get;
+    } = OperationContractDescriptor.Create(
         operationName: "product-page",
         inputs:
         [
@@ -207,7 +234,10 @@ public static class BusinessOperationContracts
         observationStart: "The product page request arrives at Storefront.Api.",
         observationEnd: "Storefront.Api sends the final HTTP response for the product page request.");
 
-    public static OperationContractDescriptor CatalogProductDetail { get; } = OperationContractDescriptor.Create(
+    public static OperationContractDescriptor CatalogProductDetail
+    {
+        get;
+    } = OperationContractDescriptor.Create(
         operationName: "catalog-product-detail",
         inputs:
         [
@@ -232,7 +262,10 @@ public static class BusinessOperationContracts
         observationStart: "The product detail request arrives at Catalog.Api.",
         observationEnd: "Catalog.Api sends the HTTP response for the product detail request.");
 
-    public static OperationContractDescriptor AddItemToCart { get; } = OperationContractDescriptor.Create(
+    public static OperationContractDescriptor AddItemToCart
+    {
+        get;
+    } = OperationContractDescriptor.Create(
         operationName: "add-item-to-cart",
         inputs:
         [
@@ -258,7 +291,10 @@ public static class BusinessOperationContracts
         observationStart: "The add-to-cart request arrives at Storefront.Api.",
         observationEnd: "Storefront.Api sends the HTTP response for the add-to-cart operation.");
 
-    public static OperationContractDescriptor CartAddItem { get; } = OperationContractDescriptor.Create(
+    public static OperationContractDescriptor CartAddItem
+    {
+        get;
+    } = OperationContractDescriptor.Create(
         operationName: "cart-add-item",
         inputs:
         [
@@ -284,7 +320,10 @@ public static class BusinessOperationContracts
         observationStart: "The add-item request arrives at Cart.Api.",
         observationEnd: "Cart.Api sends the HTTP response for the add-item request.");
 
-    public static OperationContractDescriptor CartRemoveItem { get; } = OperationContractDescriptor.Create(
+    public static OperationContractDescriptor CartRemoveItem
+    {
+        get;
+    } = OperationContractDescriptor.Create(
         operationName: "cart-remove-item",
         inputs:
         [
@@ -310,7 +349,10 @@ public static class BusinessOperationContracts
         observationStart: "The remove-item request arrives at Cart.Api.",
         observationEnd: "Cart.Api sends the HTTP response for the remove-item request.");
 
-    public static OperationContractDescriptor CartGet { get; } = OperationContractDescriptor.Create(
+    public static OperationContractDescriptor CartGet
+    {
+        get;
+    } = OperationContractDescriptor.Create(
         operationName: "cart-get",
         inputs:
         [
@@ -332,7 +374,10 @@ public static class BusinessOperationContracts
         observationStart: "The get-cart request arrives at Cart.Api.",
         observationEnd: "Cart.Api sends the HTTP response for the get-cart request.");
 
-    public static OperationContractDescriptor OrderCheckout { get; } = OperationContractDescriptor.Create(
+    public static OperationContractDescriptor OrderCheckout
+    {
+        get;
+    } = OperationContractDescriptor.Create(
         operationName: "order-checkout",
         inputs:
         [
@@ -358,7 +403,10 @@ public static class BusinessOperationContracts
         observationStart: "The checkout request arrives at Order.Api.",
         observationEnd: "Order.Api sends the HTTP response for the checkout request.");
 
-    public static OperationContractDescriptor CheckoutSync { get; } = OperationContractDescriptor.Create(
+    public static OperationContractDescriptor CheckoutSync
+    {
+        get;
+    } = OperationContractDescriptor.Create(
         operationName: "checkout-sync",
         inputs:
         [
@@ -386,7 +434,10 @@ public static class BusinessOperationContracts
         observationStart: "The checkout request arrives at Order.Api.",
         observationEnd: "Order.Api sends the HTTP response for the synchronous checkout request.");
 
-    public static OperationContractDescriptor CheckoutAsync { get; } = OperationContractDescriptor.Create(
+    public static OperationContractDescriptor CheckoutAsync
+    {
+        get;
+    } = OperationContractDescriptor.Create(
         operationName: "checkout-async",
         inputs:
         [
@@ -413,7 +464,10 @@ public static class BusinessOperationContracts
         observationStart: "The checkout request arrives at Order.Api.",
         observationEnd: "Order.Api sends the HTTP response for the asynchronous checkout request.");
 
-    public static OperationContractDescriptor StorefrontCheckout { get; } = OperationContractDescriptor.Create(
+    public static OperationContractDescriptor StorefrontCheckout
+    {
+        get;
+    } = OperationContractDescriptor.Create(
         operationName: "storefront-checkout",
         inputs:
         [
@@ -437,7 +491,10 @@ public static class BusinessOperationContracts
         observationStart: "The checkout request arrives at Storefront.Api.",
         observationEnd: "Storefront.Api sends the HTTP response for the checkout request.");
 
-    public static OperationContractDescriptor StorefrontCheckoutSync { get; } = OperationContractDescriptor.Create(
+    public static OperationContractDescriptor StorefrontCheckoutSync
+    {
+        get;
+    } = OperationContractDescriptor.Create(
         operationName: "storefront-checkout-sync",
         inputs:
         [
@@ -461,7 +518,10 @@ public static class BusinessOperationContracts
         observationStart: "The synchronous checkout request arrives at Storefront.Api.",
         observationEnd: "Storefront.Api sends the HTTP response for the synchronous checkout request.");
 
-    public static OperationContractDescriptor StorefrontCheckoutAsync { get; } = OperationContractDescriptor.Create(
+    public static OperationContractDescriptor StorefrontCheckoutAsync
+    {
+        get;
+    } = OperationContractDescriptor.Create(
         operationName: "storefront-checkout-async",
         inputs:
         [
@@ -486,7 +546,10 @@ public static class BusinessOperationContracts
         observationStart: "The asynchronous checkout request arrives at Storefront.Api.",
         observationEnd: "Storefront.Api sends the HTTP response for the asynchronous checkout request.");
 
-    public static OperationContractDescriptor PaymentAuthorize { get; } = OperationContractDescriptor.Create(
+    public static OperationContractDescriptor PaymentAuthorize
+    {
+        get;
+    } = OperationContractDescriptor.Create(
         operationName: "payment-authorize",
         inputs:
         [
@@ -513,7 +576,10 @@ public static class BusinessOperationContracts
         observationStart: "The payment authorization request arrives at PaymentSimulator.Api.",
         observationEnd: "PaymentSimulator.Api sends the HTTP response for the authorization attempt.");
 
-    public static OperationContractDescriptor PaymentAuthorizationStatus { get; } = OperationContractDescriptor.Create(
+    public static OperationContractDescriptor PaymentAuthorizationStatus
+    {
+        get;
+    } = OperationContractDescriptor.Create(
         operationName: "payment-authorization-status",
         inputs:
         [
@@ -535,7 +601,10 @@ public static class BusinessOperationContracts
         observationStart: "The payment-status request arrives at PaymentSimulator.Api.",
         observationEnd: "PaymentSimulator.Api sends the HTTP response for the payment-status request.");
 
-    public static OperationContractDescriptor OrderHistory { get; } = OperationContractDescriptor.Create(
+    public static OperationContractDescriptor OrderHistory
+    {
+        get;
+    } = OperationContractDescriptor.Create(
         operationName: "order-history",
         inputs:
         [
@@ -560,7 +629,10 @@ public static class BusinessOperationContracts
         observationStart: "The order-history request arrives at Storefront.Api.",
         observationEnd: "Storefront.Api sends the final HTTP response for the order-history request.");
 
-    public static IReadOnlyList<OperationContractDescriptor> All { get; } = Array.AsReadOnly(
+    public static IReadOnlyList<OperationContractDescriptor> All
+    {
+        get;
+    } = Array.AsReadOnly(
     [
         ProductPage,
         AddItemToCart,

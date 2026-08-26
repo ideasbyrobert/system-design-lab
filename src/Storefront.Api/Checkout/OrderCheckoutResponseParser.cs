@@ -110,9 +110,15 @@ internal static class OrderCheckoutResponseParser
         string? PaymentErrorCode,
         OrderRequestPayload Request)
     {
-        public string? CheckoutMode { get; init; }
+        public string? CheckoutMode
+        {
+            get; init;
+        }
 
-        public string? BackgroundJobId { get; init; }
+        public string? BackgroundJobId
+        {
+            get; init;
+        }
     }
 
     private sealed record OrderCheckoutFailurePayload(
@@ -124,6 +130,9 @@ internal static class OrderCheckoutResponseParser
         string? PaymentMode,
         OrderRequestPayload Request)
     {
-        public string? CheckoutMode { get; init; }
+        public string? CheckoutMode
+        {
+            get; init;
+        }
     }
 }

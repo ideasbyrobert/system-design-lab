@@ -8,17 +8,32 @@ public sealed class Product
 
     public string Description { get; set; } = string.Empty;
 
-    public int PriceCents { get; set; }
+    public int PriceCents
+    {
+        get; set;
+    }
 
     public string Category { get; set; } = string.Empty;
 
-    public long Version { get; set; }
+    public long Version
+    {
+        get; set;
+    }
 
-    public DateTimeOffset CreatedUtc { get; set; }
+    public DateTimeOffset CreatedUtc
+    {
+        get; set;
+    }
 
-    public DateTimeOffset UpdatedUtc { get; set; }
+    public DateTimeOffset UpdatedUtc
+    {
+        get; set;
+    }
 
-    public InventoryRecord? Inventory { get; set; }
+    public InventoryRecord? Inventory
+    {
+        get; set;
+    }
 
     public ICollection<CartItem> CartItems { get; } = [];
 

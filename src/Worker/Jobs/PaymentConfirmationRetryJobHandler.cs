@@ -267,7 +267,10 @@ internal sealed class PaymentConfirmationRetryJobHandler(
             CanRetry(job))
         {
             DateTimeOffset nextAttemptUtc = nowUtc.AddMilliseconds(GetRetryDelayMilliseconds(job));
-            string updatedPayloadJson = SerializePayload(payload with { StatusCheckOnly = true });
+            string updatedPayloadJson = SerializePayload(payload with
+            {
+                StatusCheckOnly = true
+            });
             trace.RecordInstantStage(
                 "payment_retry_scheduled",
                 outcome: "pending_confirmation",

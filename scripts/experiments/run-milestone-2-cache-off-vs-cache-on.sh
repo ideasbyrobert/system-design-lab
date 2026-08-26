@@ -3,8 +3,9 @@
 set -euo pipefail
 
 PROJECT_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
-WORKSPACE_ROOT="${LAB_EXPERIMENT_ROOT:-$PROJECT_ROOT/docs/experiments/milestone-2-cache-off-vs-cache-on/workspace}"
-ARTIFACT_ROOT="$PROJECT_ROOT/docs/experiments/milestone-2-cache-off-vs-cache-on/artifacts"
+OUTPUT_ROOT="${LAB_EXPERIMENT_OUTPUT_ROOT:-/tmp/system-design-lab-experiments/milestone-2-cache-off-vs-cache-on}"
+WORKSPACE_ROOT="${LAB_EXPERIMENT_ROOT:-$OUTPUT_ROOT/workspace}"
+ARTIFACT_ROOT="$OUTPUT_ROOT/artifacts"
 STORE_URL="${LAB_STORE_URL:-http://127.0.0.1:5087}"
 CATALOG_URL="${LAB_CATALOG_URL:-http://127.0.0.1:5088}"
 OFF_RUN_ID="${LAB_CACHE_OFF_RUN_ID:-milestone-2-cache-off}"
@@ -19,7 +20,8 @@ ANALYZE_OPERATION="${LAB_ANALYZE_OPERATION:-product-page}"
 CATALOG_LOG_PATH="$ARTIFACT_ROOT/catalog.log"
 STORE_LOG_PATH="$ARTIFACT_ROOT/storefront.log"
 
-cleanup() {
+cleanup()
+{
     if [[ -n "${STORE_PID:-}" ]] && kill -0 "$STORE_PID" 2>/dev/null; then
         kill "$STORE_PID" 2>/dev/null || true
         wait "$STORE_PID" 2>/dev/null || true

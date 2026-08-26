@@ -6,9 +6,15 @@ public sealed class StorefrontCheckoutRequest
 {
     public string UserId { get; set; } = string.Empty;
 
-    public string? PaymentMode { get; set; }
+    public string? PaymentMode
+    {
+        get; set;
+    }
 
-    public string? PaymentCallbackUrl { get; set; }
+    public string? PaymentCallbackUrl
+    {
+        get; set;
+    }
 }
 
 internal sealed record StorefrontOrderRequestInfo(

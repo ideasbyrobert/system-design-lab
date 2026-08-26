@@ -2,19 +2,40 @@ namespace Lab.Shared.Contracts;
 
 public sealed class OperationContractDescriptor
 {
-    public string OperationName { get; }
+    public string OperationName
+    {
+        get;
+    }
 
-    public IReadOnlyList<string> Inputs { get; }
+    public IReadOnlyList<string> Inputs
+    {
+        get;
+    }
 
-    public IReadOnlyList<string> Preconditions { get; }
+    public IReadOnlyList<string> Preconditions
+    {
+        get;
+    }
 
-    public IReadOnlyList<string> Postconditions { get; }
+    public IReadOnlyList<string> Postconditions
+    {
+        get;
+    }
 
-    public IReadOnlyList<string> Invariants { get; }
+    public IReadOnlyList<string> Invariants
+    {
+        get;
+    }
 
-    public string ObservationStart { get; }
+    public string ObservationStart
+    {
+        get;
+    }
 
-    public string ObservationEnd { get; }
+    public string ObservationEnd
+    {
+        get;
+    }
 
     private OperationContractDescriptor(
         string operationName,

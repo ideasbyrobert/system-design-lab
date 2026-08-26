@@ -1,9 +1,9 @@
-using LoadGenTool.Cli;
-using LoadGenTool.Workloads;
 using Lab.Persistence;
 using Lab.Persistence.Seeding;
-using SeedDataTool.Cli;
+using LoadGenTool.Cli;
+using LoadGenTool.Workloads;
 using Microsoft.Data.Sqlite;
+using SeedDataTool.Cli;
 
 namespace Lab.UnitTests;
 
@@ -26,7 +26,10 @@ public sealed class SeedAndLoadGenTests
         Assert.AreEqual(3, result.InventoryRecordsInserted);
         Assert.AreEqual(2, result.UsersInserted);
 
-        SqliteConnectionStringBuilder builder = new() { DataSource = databasePath };
+        SqliteConnectionStringBuilder builder = new()
+        {
+            DataSource = databasePath
+        };
         await using SqliteConnection connection = new(builder.ToString());
         await connection.OpenAsync();
 

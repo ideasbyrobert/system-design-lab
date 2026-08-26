@@ -10,11 +10,20 @@ public sealed class ReadModelOrderHistory
 
     public string Status { get; set; } = string.Empty;
 
-    public DateTimeOffset OrderCreatedUtc { get; set; }
+    public DateTimeOffset OrderCreatedUtc
+    {
+        get; set;
+    }
 
-    public long ProjectionVersion { get; set; }
+    public long ProjectionVersion
+    {
+        get; set;
+    }
 
     public string SummaryJson { get; set; } = string.Empty;
 
-    public DateTimeOffset ProjectedUtc { get; set; }
+    public DateTimeOffset ProjectedUtc
+    {
+        get; set;
+    }
 }

@@ -1,9 +1,9 @@
-﻿using System.Diagnostics;
-using LoadGenTool.Cli;
-using LoadGenTool.Workloads;
+using System.Diagnostics;
 using Lab.Shared.Configuration;
 using Lab.Shared.Http;
 using Lab.Shared.Logging;
+using LoadGenTool.Cli;
+using LoadGenTool.Workloads;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;

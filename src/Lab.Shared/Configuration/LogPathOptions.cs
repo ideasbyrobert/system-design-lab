@@ -12,23 +12,53 @@ public sealed class LogPathOptions
 
     public string OperationalLogsDirectory { get; set; } = "logs";
 
-    public string? StorefrontLog { get; set; }
+    public string? StorefrontLog
+    {
+        get; set;
+    }
 
-    public string? CatalogLog { get; set; }
+    public string? CatalogLog
+    {
+        get; set;
+    }
 
-    public string? CartLog { get; set; }
+    public string? CartLog
+    {
+        get; set;
+    }
 
-    public string? OrderLog { get; set; }
+    public string? OrderLog
+    {
+        get; set;
+    }
 
-    public string? PaymentSimulatorLog { get; set; }
+    public string? PaymentSimulatorLog
+    {
+        get; set;
+    }
 
-    public string? ProxyLog { get; set; }
+    public string? ProxyLog
+    {
+        get; set;
+    }
 
-    public string? WorkerLog { get; set; }
+    public string? WorkerLog
+    {
+        get; set;
+    }
 
-    public string? SeedDataLog { get; set; }
+    public string? SeedDataLog
+    {
+        get; set;
+    }
 
-    public string? LoadGenLog { get; set; }
+    public string? LoadGenLog
+    {
+        get; set;
+    }
 
-    public string? AnalyzeLog { get; set; }
+    public string? AnalyzeLog
+    {
+        get; set;
+    }
 }

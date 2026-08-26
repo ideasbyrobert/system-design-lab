@@ -19,7 +19,9 @@ public sealed class JsonlTelemetryWriterTests
         string root = CreateUniqueTempDirectory();
         string path = Path.Combine(root, "logs", "requests.jsonl");
 
-        using ILoggerFactory loggerFactory = LoggerFactory.Create(builder => { });
+        using ILoggerFactory loggerFactory = LoggerFactory.Create(builder =>
+        {
+        });
         IRequestTraceWriter writer = new JsonlRequestTraceWriter(
             path,
             new SafeFileAppender(),
@@ -48,7 +50,9 @@ public sealed class JsonlTelemetryWriterTests
         string root = CreateUniqueTempDirectory();
         string path = Path.Combine(root, "logs", "jobs.jsonl");
 
-        using ILoggerFactory loggerFactory = LoggerFactory.Create(builder => { });
+        using ILoggerFactory loggerFactory = LoggerFactory.Create(builder =>
+        {
+        });
         IJobTraceWriter writer = new JsonlJobTraceWriter(
             path,
             new SafeFileAppender(),
@@ -76,7 +80,9 @@ public sealed class JsonlTelemetryWriterTests
         string root = CreateUniqueTempDirectory();
         string path = Path.Combine(root, "logs", "requests.jsonl");
 
-        using ILoggerFactory loggerFactory = LoggerFactory.Create(builder => { });
+        using ILoggerFactory loggerFactory = LoggerFactory.Create(builder =>
+        {
+        });
         SafeFileAppender appender = new();
 
         Task<bool>[] writes = Enumerable.Range(1, 200)

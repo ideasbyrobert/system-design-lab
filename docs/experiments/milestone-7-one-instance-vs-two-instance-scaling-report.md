@@ -64,11 +64,11 @@ The experiment was produced by:
 
 Generated artifacts:
 
-- `docs/experiments/milestone-7-one-instance-vs-two-instance-scaling/artifacts/frontend-cpu/one-instance/`
-- `docs/experiments/milestone-7-one-instance-vs-two-instance-scaling/artifacts/frontend-cpu/two-instance/`
-- `docs/experiments/milestone-7-one-instance-vs-two-instance-scaling/artifacts/shared-checkout/one-instance/`
-- `docs/experiments/milestone-7-one-instance-vs-two-instance-scaling/artifacts/shared-checkout/two-instance/`
-- `docs/experiments/milestone-7-one-instance-vs-two-instance-scaling/artifacts/comparison.json`
+- `/tmp/system-design-lab-experiments/milestone-7-one-instance-vs-two-instance-scaling/artifacts/frontend-cpu/one-instance/`
+- `/tmp/system-design-lab-experiments/milestone-7-one-instance-vs-two-instance-scaling/artifacts/frontend-cpu/two-instance/`
+- `/tmp/system-design-lab-experiments/milestone-7-one-instance-vs-two-instance-scaling/artifacts/shared-checkout/one-instance/`
+- `/tmp/system-design-lab-experiments/milestone-7-one-instance-vs-two-instance-scaling/artifacts/shared-checkout/two-instance/`
+- `/tmp/system-design-lab-experiments/milestone-7-one-instance-vs-two-instance-scaling/artifacts/comparison.json`
 
 ## Workload
 

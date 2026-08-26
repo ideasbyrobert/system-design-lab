@@ -1,40 +1,49 @@
 #!/usr/bin/env bash
 
-operator_project_root() {
+operator_project_root()
+{
     cd "$(dirname "${BASH_SOURCE[0]}")/../.." >/dev/null 2>&1 && pwd
 }
 
 OPERATOR_PROJECT_ROOT="$(operator_project_root)"
 
-operator_default_workspace() {
+operator_default_workspace()
+{
     printf '%s\n' "${LAB_OPERATOR_ROOT:-/tmp/ecommerce-systems-lab-operator}"
 }
 
-operator_runtime_dir() {
+operator_runtime_dir()
+{
     printf '%s\n' "$1/.operator"
 }
 
-operator_pid_path() {
+operator_pid_path()
+{
     printf '%s\n' "$(operator_runtime_dir "$1")/$2.pid"
 }
 
-operator_log_path() {
+operator_log_path()
+{
     printf '%s\n' "$(operator_runtime_dir "$1")/$2.stdout.log"
 }
 
-operator_build_log_path() {
+operator_build_log_path()
+{
     printf '%s\n' "$(operator_runtime_dir "$1")/build.log"
 }
 
-operator_manifest_path() {
+operator_manifest_path()
+{
     printf '%s\n' "$(operator_runtime_dir "$1")/$2.manifest"
 }
 
-operator_ensure_runtime_dirs() {
+operator_ensure_runtime_dirs()
+{
     mkdir -p "$1" "$(operator_runtime_dir "$1")"
 }
 
-operator_wait_for_http() {
+operator_wait_for_http()
+{
     local url="$1"
     local process_id="$2"
     local log_path="$3"
@@ -59,7 +68,8 @@ operator_wait_for_http() {
     done
 }
 
-operator_stop_pid_file() {
+operator_stop_pid_file()
+{
     local pid_path="$1"
 
     if [[ ! -f "$pid_path" ]]; then
@@ -77,7 +87,8 @@ operator_stop_pid_file() {
     rm -f "$pid_path"
 }
 
-operator_stop_all() {
+operator_stop_all()
+{
     local workspace="$1"
     local runtime_dir
     runtime_dir="$(operator_runtime_dir "$workspace")"
@@ -94,7 +105,8 @@ operator_stop_all() {
     done
 }
 
-operator_build() {
+operator_build()
+{
     local workspace="$1"
 
     operator_ensure_runtime_dirs "$workspace"
@@ -105,7 +117,8 @@ operator_build() {
     ) > "$(operator_build_log_path "$workspace")" 2>&1
 }
 
-operator_start_http_service() {
+operator_start_http_service()
+{
     local workspace="$1"
     local name="$2"
     local project_path="$3"
@@ -133,7 +146,8 @@ operator_start_http_service() {
     operator_wait_for_http "$url$health_path" "$process_id" "$log_path" "$name"
 }
 
-operator_start_background_service() {
+operator_start_background_service()
+{
     local workspace="$1"
     local name="$2"
     local project_path="$3"

@@ -81,5 +81,8 @@ public sealed record CheckoutPersistenceResult(
         string? productId = null) =>
         new(false, null, null, null, [], new CheckoutPersistenceFailure(code, detail, productId));
 
-    public string? QueueJobId { get; init; }
+    public string? QueueJobId
+    {
+        get; init;
+    }
 }

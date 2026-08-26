@@ -1,6 +1,6 @@
+using Lab.Persistence.DependencyInjection;
 using Lab.Shared.Configuration;
 using Lab.Shared.Logging;
-using Lab.Persistence.DependencyInjection;
 using Lab.Telemetry.DependencyInjection;
 using Microsoft.Extensions.Options;
 using Worker;

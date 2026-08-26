@@ -1,6 +1,6 @@
+using System.Text.Json;
 using Lab.Persistence;
 using Lab.Persistence.Queueing;
-using System.Text.Json;
 
 namespace Lab.UnitTests;
 
@@ -170,20 +170,35 @@ public sealed class DurableQueueStoreTests
         await store.EnqueueAsync(new EnqueueQueueJobRequest(
             QueueJobId: "job-054-state-001",
             JobType: "payment-confirmation-retry",
-            PayloadJson: Serialize(new { paymentId = "pay-1", orderId = "order-1", runId = "run-a" }),
+            PayloadJson: Serialize(new
+            {
+                paymentId = "pay-1",
+                orderId = "order-1",
+                runId = "run-a"
+            }),
             EnqueuedUtc: snapshotUtc.AddSeconds(-12)));
 
         await store.EnqueueAsync(new EnqueueQueueJobRequest(
             QueueJobId: "job-054-state-002",
             JobType: "payment-confirmation-retry",
-            PayloadJson: Serialize(new { paymentId = "pay-2", orderId = "order-2", runId = "run-a" }),
+            PayloadJson: Serialize(new
+            {
+                paymentId = "pay-2",
+                orderId = "order-2",
+                runId = "run-a"
+            }),
             EnqueuedUtc: snapshotUtc.AddSeconds(-8),
             AvailableUtc: snapshotUtc.AddSeconds(5)));
 
         await store.EnqueueAsync(new EnqueueQueueJobRequest(
             QueueJobId: "job-054-state-003",
             JobType: "payment-confirmation-retry",
-            PayloadJson: Serialize(new { paymentId = "pay-3", orderId = "order-3", runId = "run-b" }),
+            PayloadJson: Serialize(new
+            {
+                paymentId = "pay-3",
+                orderId = "order-3",
+                runId = "run-b"
+            }),
             EnqueuedUtc: snapshotUtc.AddSeconds(-20)));
 
         QueueStateSnapshot filtered = await store.GetStateSnapshotAsync(snapshotUtc, "run-a");

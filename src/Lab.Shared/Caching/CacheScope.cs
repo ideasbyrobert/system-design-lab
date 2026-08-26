@@ -2,9 +2,15 @@ namespace Lab.Shared.Caching;
 
 public sealed record CacheScope
 {
-    public required string NamespaceName { get; init; }
+    public required string NamespaceName
+    {
+        get; init;
+    }
 
-    public required string Region { get; init; }
+    public required string Region
+    {
+        get; init;
+    }
 
     public static CacheScope Create(string namespaceName, string region)
     {

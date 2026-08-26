@@ -1,5 +1,5 @@
-using System.Text.Json;
 using System.Net.Http.Json;
+using System.Text.Json;
 using Lab.Persistence;
 using Lab.Persistence.DependencyInjection;
 using Lab.Persistence.Entities;

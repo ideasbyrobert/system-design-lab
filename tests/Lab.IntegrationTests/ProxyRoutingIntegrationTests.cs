@@ -80,7 +80,7 @@ public sealed class ProxyRoutingIntegrationTests
             observedBackends.Add(response.Headers.GetValues(ProxyForwarder.ProxyBackendHeaderName).Single());
         }
 
-        Assert.AreEqual(3, observedBackends.Count);
+        Assert.HasCount(3, observedBackends);
         Assert.IsTrue(observedBackends.All(backend => backend == observedBackends[0]));
     }
 
@@ -114,7 +114,7 @@ public sealed class ProxyRoutingIntegrationTests
             observedBackends.Add(response.Headers.GetValues(ProxyForwarder.ProxyBackendHeaderName).Single());
         }
 
-        Assert.AreEqual(2, observedBackends.Count);
+        Assert.HasCount(2, observedBackends);
         Assert.AreEqual(observedBackends[0], observedBackends[1]);
     }
 

@@ -10,7 +10,10 @@ public sealed class User
 
     public string Region { get; set; } = string.Empty;
 
-    public DateTimeOffset CreatedUtc { get; set; }
+    public DateTimeOffset CreatedUtc
+    {
+        get; set;
+    }
 
     public ICollection<Cart> Carts { get; } = [];
 

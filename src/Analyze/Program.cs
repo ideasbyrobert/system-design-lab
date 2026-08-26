@@ -1,4 +1,4 @@
-﻿using Lab.Analysis.Cli;
+using Lab.Analysis.Cli;
 using Lab.Analysis.DependencyInjection;
 using Lab.Analysis.Services;
 using Lab.Shared.Configuration;

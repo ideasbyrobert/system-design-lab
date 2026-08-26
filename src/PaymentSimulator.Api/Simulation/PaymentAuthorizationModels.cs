@@ -6,11 +6,17 @@ public sealed class PaymentAuthorizationRequest
 
     public string OrderId { get; set; } = string.Empty;
 
-    public int AmountCents { get; set; }
+    public int AmountCents
+    {
+        get; set;
+    }
 
     public string Currency { get; set; } = "USD";
 
-    public string? CallbackUrl { get; set; }
+    public string? CallbackUrl
+    {
+        get; set;
+    }
 }
 
 internal sealed record PaymentSimulatorRequestInfo(

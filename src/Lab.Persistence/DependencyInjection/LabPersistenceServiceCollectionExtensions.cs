@@ -1,11 +1,11 @@
-using Lab.Shared.Configuration;
-using Microsoft.Extensions.DependencyInjection.Extensions;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
 using Lab.Persistence.Checkout;
 using Lab.Persistence.Projections;
 using Lab.Persistence.Queueing;
 using Lab.Persistence.Replication;
+using Lab.Shared.Configuration;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection.Extensions;
 
 namespace Lab.Persistence.DependencyInjection;
 

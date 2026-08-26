@@ -29,7 +29,7 @@ Average concurrency is reconstructed from full request lifetimes inside that bou
 - `Catalog.Api` cache disabled on purpose to isolate the Storefront cache decision
 - `primary.db` seeded with `4` products and `3` users
 - `ReadModel_ProductPage` rebuilt during setup, but not used on the live read path yet
-- one clean experiment workspace under `docs/experiments/milestone-2-cache-off-vs-cache-on/workspace`
+- one clean experiment workspace under `/tmp/system-design-lab-experiments/milestone-2-cache-off-vs-cache-on/workspace`
 
 The experiment was produced by:
 
@@ -39,13 +39,13 @@ The experiment was produced by:
 
 Generated artifacts:
 
-- `docs/experiments/milestone-2-cache-off-vs-cache-on/artifacts/milestone-2-cache-off-summary.json`
-- `docs/experiments/milestone-2-cache-off-vs-cache-on/artifacts/milestone-2-cache-on-summary.json`
-- `docs/experiments/milestone-2-cache-off-vs-cache-on/artifacts/milestone-2-cache-off-analysis.md`
-- `docs/experiments/milestone-2-cache-off-vs-cache-on/artifacts/milestone-2-cache-on-analysis.md`
-- `docs/experiments/milestone-2-cache-off-vs-cache-on/artifacts/milestone-2-cache-off-loadgen.txt`
-- `docs/experiments/milestone-2-cache-off-vs-cache-on/artifacts/milestone-2-cache-on-loadgen.txt`
-- `docs/experiments/milestone-2-cache-off-vs-cache-on/artifacts/requests.jsonl`
+- `/tmp/system-design-lab-experiments/milestone-2-cache-off-vs-cache-on/artifacts/milestone-2-cache-off-summary.json`
+- `/tmp/system-design-lab-experiments/milestone-2-cache-off-vs-cache-on/artifacts/milestone-2-cache-on-summary.json`
+- `/tmp/system-design-lab-experiments/milestone-2-cache-off-vs-cache-on/artifacts/milestone-2-cache-off-analysis.md`
+- `/tmp/system-design-lab-experiments/milestone-2-cache-off-vs-cache-on/artifacts/milestone-2-cache-on-analysis.md`
+- `/tmp/system-design-lab-experiments/milestone-2-cache-off-vs-cache-on/artifacts/milestone-2-cache-off-loadgen.txt`
+- `/tmp/system-design-lab-experiments/milestone-2-cache-off-vs-cache-on/artifacts/milestone-2-cache-on-loadgen.txt`
+- `/tmp/system-design-lab-experiments/milestone-2-cache-off-vs-cache-on/artifacts/requests.jsonl`
 
 ## Workload
 

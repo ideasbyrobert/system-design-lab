@@ -42,7 +42,10 @@ internal sealed record CatalogProductDetailResponse(
     CatalogRequestInfo Request)
 {
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
-    public CatalogDebugTelemetryInfo? DebugTelemetry { get; init; }
+    public CatalogDebugTelemetryInfo? DebugTelemetry
+    {
+        get; init;
+    }
 }
 
 internal sealed record CatalogProductNotFoundResponse(
@@ -53,5 +56,8 @@ internal sealed record CatalogProductNotFoundResponse(
     CatalogRequestInfo Request)
 {
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
-    public CatalogDebugTelemetryInfo? DebugTelemetry { get; init; }
+    public CatalogDebugTelemetryInfo? DebugTelemetry
+    {
+        get; init;
+    }
 }

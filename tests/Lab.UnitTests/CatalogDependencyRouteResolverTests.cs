@@ -97,7 +97,10 @@ public sealed class CatalogDependencyRouteResolverTests
 
         public string ContentRootPath { get; set; } = contentRootPath;
 
-        public Microsoft.Extensions.FileProviders.IFileProvider ContentRootFileProvider { get; set; } =
+        public Microsoft.Extensions.FileProviders.IFileProvider ContentRootFileProvider
+        {
+            get; set;
+        } =
             new Microsoft.Extensions.FileProviders.PhysicalFileProvider(contentRootPath);
     }
 }

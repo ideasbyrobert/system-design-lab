@@ -120,7 +120,10 @@ internal static class CatalogProductResponseParser
         CatalogFreshnessPayload? Freshness,
         CatalogRequestPayload Request)
     {
-        public CatalogDebugTelemetryInfo? DebugTelemetry { get; init; }
+        public CatalogDebugTelemetryInfo? DebugTelemetry
+        {
+            get; init;
+        }
     }
 
     private sealed record CatalogProductNotFoundPayload(
@@ -130,7 +133,10 @@ internal static class CatalogProductResponseParser
         CatalogFreshnessPayload? Freshness,
         CatalogRequestPayload Request)
     {
-        public CatalogDebugTelemetryInfo? DebugTelemetry { get; init; }
+        public CatalogDebugTelemetryInfo? DebugTelemetry
+        {
+            get; init;
+        }
     }
 
     private sealed record CatalogFreshnessPayload(

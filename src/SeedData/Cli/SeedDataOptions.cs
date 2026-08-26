@@ -11,7 +11,10 @@ public sealed record SeedDataOptions(
     int? ReplicaWestLagMillisecondsOverride,
     bool ShowHelp)
 {
-    public static SeedDataOptions Default { get; } = new(
+    public static SeedDataOptions Default
+    {
+        get;
+    } = new(
         ProductCount: 50,
         UserCount: 10,
         ResetExisting: true,

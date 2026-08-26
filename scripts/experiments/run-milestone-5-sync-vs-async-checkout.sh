@@ -3,7 +3,7 @@
 set -euo pipefail
 
 PROJECT_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
-EXPERIMENT_ROOT="$PROJECT_ROOT/docs/experiments/milestone-5-sync-vs-async-checkout"
+EXPERIMENT_ROOT="${LAB_EXPERIMENT_OUTPUT_ROOT:-/tmp/system-design-lab-experiments/milestone-5-sync-vs-async-checkout}"
 WORKSPACE_ROOT="${LAB_EXPERIMENT_ROOT:-$EXPERIMENT_ROOT/workspace}"
 SYNC_WORKSPACE="$WORKSPACE_ROOT/sync"
 ASYNC_WORKSPACE="$WORKSPACE_ROOT/async"
@@ -40,7 +40,8 @@ ORDER_PID=""
 STOREFRONT_PID=""
 WORKER_PID=""
 
-reset_service_pids() {
+reset_service_pids()
+{
     CART_PID=""
     PAYMENT_PID=""
     ORDER_PID=""
@@ -48,7 +49,8 @@ reset_service_pids() {
     WORKER_PID=""
 }
 
-stop_services() {
+stop_services()
+{
     local pid
 
     for pid in "$WORKER_PID" "$STOREFRONT_PID" "$ORDER_PID" "$PAYMENT_PID" "$CART_PID"; do
@@ -61,13 +63,15 @@ stop_services() {
     reset_service_pids
 }
 
-cleanup() {
+cleanup()
+{
     stop_services
 }
 
 trap cleanup EXIT
 
-wait_for_http() {
+wait_for_http()
+{
     local url="$1"
     local process_id="$2"
     local log_path="$3"
@@ -92,7 +96,8 @@ wait_for_http() {
     done
 }
 
-prepare_workspace() {
+prepare_workspace()
+{
     local workspace="$1"
     local artifact_dir="$2"
 
@@ -100,7 +105,8 @@ prepare_workspace() {
     mkdir -p "$workspace" "$artifact_dir" "$artifact_dir/responses" "$artifact_dir/headers" "$artifact_dir/status"
 }
 
-seed_workspace() {
+seed_workspace()
+{
     local workspace="$1"
     local artifact_dir="$2"
 
@@ -111,7 +117,8 @@ seed_workspace() {
         --reset true > "$artifact_dir/seed-data.txt" 2>&1
 }
 
-start_core_services() {
+start_core_services()
+{
     local workspace="$1"
     local artifact_dir="$2"
 
@@ -147,7 +154,8 @@ start_core_services() {
     wait_for_http "$STOREFRONT_URL/health" "$STOREFRONT_PID" "$artifact_dir/storefront.log" "Storefront.Api"
 }
 
-start_worker() {
+start_worker()
+{
     local workspace="$1"
     local artifact_dir="$2"
 
@@ -158,7 +166,8 @@ start_worker() {
     WORKER_PID=$!
 }
 
-wait_for_queue_idle() {
+wait_for_queue_idle()
+{
     local workspace="$1"
     local run_id="$2"
     local timeout_seconds="$3"
@@ -208,13 +217,15 @@ sys.exit(1)
 PY
 }
 
-capture_queue_state() {
+capture_queue_state()
+{
     local workspace="$1"
     local run_id="$2"
     local output_path="$3"
 
     python3 - "$workspace" "$run_id" "$output_path" <<'PY'
 import json
+import re
 import sqlite3
 import sys
 from collections import Counter
@@ -225,6 +236,20 @@ workspace = Path(sys.argv[1])
 run_id = sys.argv[2]
 output_path = Path(sys.argv[3])
 database_path = workspace / "data" / "primary.db"
+
+def parse_timestamp(value):
+    normalized = value.replace("Z", "+00:00")
+    match = re.fullmatch(r"(.*\.)(\d+)([+-]\d{2}:\d{2})?", normalized)
+    if match:
+        fraction = match.group(2)[:6].ljust(6, "0")
+        offset = match.group(3) or ""
+        normalized = f"{match.group(1)}{fraction}{offset}"
+
+    parsed = datetime.fromisoformat(normalized)
+    if parsed.tzinfo is None:
+        parsed = parsed.replace(tzinfo=timezone.utc)
+
+    return parsed
 
 rows = []
 connection = sqlite3.connect(database_path)
@@ -264,7 +289,7 @@ oldest_enqueued = min((item["enqueuedUtc"] for item in filtered), default=None)
 oldest_age_ms = None
 if oldest_enqueued:
     now_utc = datetime.now(timezone.utc)
-    oldest_dt = datetime.fromisoformat(oldest_enqueued.replace("Z", "+00:00"))
+    oldest_dt = parse_timestamp(oldest_enqueued)
     oldest_age_ms = max(0.0, (now_utc - oldest_dt).total_seconds() * 1000.0)
 
 output = {
@@ -282,7 +307,8 @@ output_path.write_text(json.dumps(output, indent=2), encoding="utf-8")
 PY
 }
 
-add_cart_item() {
+add_cart_item()
+{
     local run_id="$1"
     local user_id="$2"
     local product_id="$3"
@@ -305,7 +331,8 @@ add_cart_item() {
     fi
 }
 
-prepare_carts() {
+prepare_carts()
+{
     local run_id="$1"
     local count="$2"
     local artifact_dir="$3"
@@ -318,7 +345,8 @@ prepare_carts() {
     done
 }
 
-warm_up_checkout_path() {
+warm_up_checkout_path()
+{
     local run_id="$1"
     local user_index="$2"
     local mode="$3"
@@ -347,7 +375,8 @@ warm_up_checkout_path() {
     fi
 }
 
-run_checkout_wave() {
+run_checkout_wave()
+{
     local run_id="$1"
     local mode="$2"
     local count="$3"
@@ -400,7 +429,8 @@ run_checkout_wave() {
     fi
 }
 
-summarize_responses() {
+summarize_responses()
+{
     local artifact_dir="$1"
     local run_id="$2"
 
@@ -463,7 +493,8 @@ output_path.write_text(json.dumps(summary, indent=2), encoding="utf-8")
 PY
 }
 
-analyze_run() {
+analyze_run()
+{
     local workspace="$1"
     local run_id="$2"
     local operation="$3"
@@ -479,7 +510,8 @@ analyze_run() {
     cp "$workspace/analysis/$run_id/report.md" "$artifact_dir/${run_id}-${phase}-report.md"
 }
 
-copy_workspace_logs() {
+copy_workspace_logs()
+{
     local workspace="$1"
     local artifact_dir="$2"
 
@@ -492,7 +524,8 @@ copy_workspace_logs() {
     fi
 }
 
-run_scenario() {
+run_scenario()
+{
     local scenario_name="$1"
     local workspace="$2"
     local artifact_dir="$3"

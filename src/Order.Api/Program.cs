@@ -135,8 +135,14 @@ app.MapPost("/orders/checkout", async (
     OrderDebugTelemetryInfo? debugTelemetry = request.DebugTelemetryRequested ? CreateDebugTelemetry(trace) : null;
 
     return result.Response is not null
-        ? Results.Json(result.Response with { DebugTelemetry = debugTelemetry }, statusCode: result.StatusCode)
-        : Results.Json(result.Failure! with { DebugTelemetry = debugTelemetry }, statusCode: result.StatusCode);
+        ? Results.Json(result.Response with
+        {
+            DebugTelemetry = debugTelemetry
+        }, statusCode: result.StatusCode)
+        : Results.Json(result.Failure! with
+        {
+            DebugTelemetry = debugTelemetry
+        }, statusCode: result.StatusCode);
 })
     .WithOperationContract(BusinessOperationContracts.OrderCheckout);
 

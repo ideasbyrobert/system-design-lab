@@ -3,7 +3,7 @@
 set -euo pipefail
 
 PROJECT_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
-EXPERIMENT_ROOT="$PROJECT_ROOT/docs/experiments/milestone-6-no-limit-vs-rate-limit-overload"
+EXPERIMENT_ROOT="${LAB_EXPERIMENT_OUTPUT_ROOT:-/tmp/system-design-lab-experiments/milestone-6-no-limit-vs-rate-limit-overload}"
 WORKSPACE_ROOT="${LAB_EXPERIMENT_ROOT:-$EXPERIMENT_ROOT/workspace}"
 NO_LIMIT_WORKSPACE="$WORKSPACE_ROOT/no-limit"
 RATE_LIMIT_WORKSPACE="$WORKSPACE_ROOT/rate-limit"
@@ -49,14 +49,16 @@ PAYMENT_PID=""
 ORDER_PID=""
 STOREFRONT_PID=""
 
-reset_service_pids() {
+reset_service_pids()
+{
     CART_PID=""
     PAYMENT_PID=""
     ORDER_PID=""
     STOREFRONT_PID=""
 }
 
-stop_services() {
+stop_services()
+{
     local pid
 
     for pid in "$STOREFRONT_PID" "$ORDER_PID" "$PAYMENT_PID" "$CART_PID"; do
@@ -69,13 +71,15 @@ stop_services() {
     reset_service_pids
 }
 
-cleanup() {
+cleanup()
+{
     stop_services
 }
 
 trap cleanup EXIT
 
-wait_for_http() {
+wait_for_http()
+{
     local url="$1"
     local process_id="$2"
     local log_path="$3"
@@ -100,7 +104,8 @@ wait_for_http() {
     done
 }
 
-prepare_workspace() {
+prepare_workspace()
+{
     local workspace="$1"
     local artifact_dir="$2"
 
@@ -108,7 +113,8 @@ prepare_workspace() {
     mkdir -p "$workspace" "$artifact_dir"
 }
 
-seed_workspace() {
+seed_workspace()
+{
     local workspace="$1"
     local artifact_dir="$2"
 
@@ -119,7 +125,8 @@ seed_workspace() {
         --reset true > "$artifact_dir/seed-data.txt" 2>&1
 }
 
-start_services() {
+start_services()
+{
     local workspace="$1"
     local artifact_dir="$2"
     local rate_limit_enabled="$3"
@@ -161,7 +168,8 @@ start_services() {
     wait_for_http "$STOREFRONT_URL/health" "$STOREFRONT_PID" "$artifact_dir/storefront.log" "Storefront.Api"
 }
 
-ensure_cart_contains_item() {
+ensure_cart_contains_item()
+{
     local run_id="$1"
     local user_id="$2"
     local product_id="$3"
@@ -184,7 +192,8 @@ ensure_cart_contains_item() {
     fi
 }
 
-warm_up_checkout_path() {
+warm_up_checkout_path()
+{
     local run_id="$1"
     local user_id="$2"
     local product_id="$3"
@@ -211,7 +220,8 @@ warm_up_checkout_path() {
     fi
 }
 
-run_checkout_load() {
+run_checkout_load()
+{
     local run_id="$1"
     local user_id="$2"
     local payment_mode="$3"
@@ -389,7 +399,8 @@ print(json.dumps(summary, indent=2))
 PY
 }
 
-analyze_run() {
+analyze_run()
+{
     local workspace="$1"
     local artifact_dir="$2"
     local run_id="$3"
@@ -405,7 +416,8 @@ analyze_run() {
     cp "$workspace/analysis/$run_id/report.md" "$artifact_dir/${run_id}-${suffix}-analysis.md"
 }
 
-copy_workspace_logs() {
+copy_workspace_logs()
+{
     local workspace="$1"
     local artifact_dir="$2"
 
@@ -416,7 +428,8 @@ copy_workspace_logs() {
     fi
 }
 
-write_comparison_json() {
+write_comparison_json()
+{
     python3 - "$NO_LIMIT_ARTIFACT_ROOT" "$RATE_LIMIT_ARTIFACT_ROOT" "$COMPARISON_PATH" <<'PY'
 import json
 import sys
@@ -460,7 +473,8 @@ print(json.dumps(comparison, indent=2))
 PY
 }
 
-run_arm() {
+run_arm()
+{
     local workspace="$1"
     local artifact_dir="$2"
     local warmup_run_id="$3"

@@ -27,7 +27,9 @@ public sealed class StorefrontTraceAnalysisTests
         _ = await client.GetAsync("/io?delayMs=10&jitterMs=0");
         _ = await client.GetAsync("/io?delayMs=-1&jitterMs=0");
 
-        using ILoggerFactory loggerFactory = LoggerFactory.Create(builder => { });
+        using ILoggerFactory loggerFactory = LoggerFactory.Create(builder =>
+        {
+        });
         TelemetryAnalyzer analyzer = new(
             new TelemetryJsonlReader(loggerFactory.CreateLogger<TelemetryJsonlReader>()),
             new QueueMetricsReader(),
@@ -65,7 +67,9 @@ public sealed class StorefrontTraceAnalysisTests
         HttpResponseMessage response = await storefrontClient.GetAsync("/products/sku-0001?cache=off&readSource=replica-east");
         Assert.AreEqual(System.Net.HttpStatusCode.OK, response.StatusCode);
 
-        using ILoggerFactory loggerFactory = LoggerFactory.Create(builder => { });
+        using ILoggerFactory loggerFactory = LoggerFactory.Create(builder =>
+        {
+        });
         TelemetryAnalyzer analyzer = new(
             new TelemetryJsonlReader(loggerFactory.CreateLogger<TelemetryJsonlReader>()),
             new QueueMetricsReader(),

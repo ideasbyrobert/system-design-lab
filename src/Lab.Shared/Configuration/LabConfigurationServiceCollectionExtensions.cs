@@ -1,8 +1,8 @@
+using Lab.Shared.Networking;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Options;
-using Lab.Shared.Networking;
 
 namespace Lab.Shared.Configuration;
 

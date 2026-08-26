@@ -169,7 +169,10 @@ internal sealed class InMemoryPaymentSimulationStore
 
         public string Outcome { get; set; } = "received";
 
-        public int AttemptCount { get; set; }
+        public int AttemptCount
+        {
+            get; set;
+        }
 
         public string LatestProviderReference { get; set; } = string.Empty;
 
@@ -243,11 +246,20 @@ internal sealed class ScheduledPaymentCallback(
 
     public PaymentCallbackDeliveryStatus Status { get; set; } = PaymentCallbackDeliveryStatus.Pending;
 
-    public int DeliveryAttempts { get; set; }
+    public int DeliveryAttempts
+    {
+        get; set;
+    }
 
-    public DateTimeOffset? CompletedUtc { get; set; }
+    public DateTimeOffset? CompletedUtc
+    {
+        get; set;
+    }
 
-    public string? LastError { get; set; }
+    public string? LastError
+    {
+        get; set;
+    }
 
     public PaymentCallbackStatusSnapshot ToSnapshot() =>
         new(

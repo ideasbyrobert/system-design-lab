@@ -3,7 +3,7 @@
 set -euo pipefail
 
 PROJECT_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
-EXPERIMENT_ROOT="$PROJECT_ROOT/docs/experiments/milestone-9-same-region-vs-cross-region"
+EXPERIMENT_ROOT="${LAB_EXPERIMENT_OUTPUT_ROOT:-/tmp/system-design-lab-experiments/milestone-9-same-region-vs-cross-region}"
 WORKSPACE_ROOT="${LAB_EXPERIMENT_ROOT:-$EXPERIMENT_ROOT/workspace}"
 ARTIFACT_ROOT="$EXPERIMENT_ROOT/artifacts"
 COMPARISON_PATH="$ARTIFACT_ROOT/comparison.json"
@@ -53,7 +53,8 @@ WEST_FORCED_EAST_ARTIFACT_ROOT="$ARTIFACT_ROOT/west-forced-east"
 
 declare -a SERVICE_PIDS=()
 
-build_measured_products() {
+build_measured_products()
+{
     local -a products=()
 
     for index in $(seq 1 "$MEASURED_PRODUCT_COUNT"); do
@@ -71,11 +72,13 @@ done < <(build_measured_products)
 WARMUP_PRODUCT_ID="$(printf 'sku-%04d' "$PRODUCT_COUNT")"
 SAMPLE_PRODUCT_ID="$(printf 'sku-%04d' "$((MEASURED_PRODUCT_COUNT + 1))")"
 
-register_pid() {
+register_pid()
+{
     SERVICE_PIDS+=("$1")
 }
 
-stop_services() {
+stop_services()
+{
     local pid
 
     for pid in "${SERVICE_PIDS[@]:-}"; do
@@ -88,13 +91,15 @@ stop_services() {
     SERVICE_PIDS=()
 }
 
-cleanup() {
+cleanup()
+{
     stop_services
 }
 
 trap cleanup EXIT
 
-wait_for_http() {
+wait_for_http()
+{
     local url="$1"
     local process_id="$2"
     local log_path="$3"
@@ -119,7 +124,8 @@ wait_for_http() {
     done
 }
 
-prepare_workspace() {
+prepare_workspace()
+{
     local workspace="$1"
     local artifact_dir="$2"
 
@@ -127,11 +133,13 @@ prepare_workspace() {
     mkdir -p "$workspace" "$artifact_dir"
 }
 
-run_build() {
+run_build()
+{
     dotnet build "$PROJECT_ROOT/ecommerce-systems-lab.sln" --no-restore > "$BUILD_LOG_PATH" 2>&1
 }
 
-seed_workspace() {
+seed_workspace()
+{
     local workspace="$1"
     local artifact_dir="$2"
 
@@ -145,7 +153,8 @@ seed_workspace() {
         --replica-west-lag-ms 0 > "$artifact_dir/seed-data.txt" 2>&1
 }
 
-start_catalog() {
+start_catalog()
+{
     local workspace="$1"
     local region="$2"
     local url="$3"
@@ -165,7 +174,8 @@ start_catalog() {
     wait_for_http "$url/" "$pid" "$stdout_log" "Catalog.Api ($label)"
 }
 
-start_storefront() {
+start_storefront()
+{
     local workspace="$1"
     local storefront_region="$2"
     local catalog_region="$3"
@@ -191,7 +201,8 @@ start_storefront() {
     wait_for_http "$storefront_url/health" "$pid" "$stdout_log" "Storefront.Api ($label)"
 }
 
-capture_get_json() {
+capture_get_json()
+{
     local url="$1"
     local run_id="$2"
     local correlation_id="$3"
@@ -212,7 +223,8 @@ capture_get_json() {
     fi
 }
 
-warm_storefront() {
+warm_storefront()
+{
     local storefront_url="$1"
     local run_id="$2"
     local artifact_dir="$3"
@@ -226,7 +238,8 @@ warm_storefront() {
         "$artifact_dir/${run_id}-warmup-response-headers.txt"
 }
 
-run_product_mix() {
+run_product_mix()
+{
     local workspace="$1"
     local storefront_url="$2"
     local run_id="$3"
@@ -261,7 +274,8 @@ run_product_mix() {
     fi
 }
 
-capture_sample() {
+capture_sample()
+{
     local storefront_url="$1"
     local run_id="$2"
     local artifact_dir="$3"
@@ -275,7 +289,8 @@ capture_sample() {
         "$artifact_dir/${run_id}-sample-response-headers.txt"
 }
 
-analyze_run() {
+analyze_run()
+{
     local workspace="$1"
     local run_id="$2"
     local artifact_dir="$3"
@@ -290,7 +305,8 @@ analyze_run() {
     cp "$workspace/analysis/$run_id/report.md" "$artifact_dir/${run_id}-analysis.md"
 }
 
-copy_workspace_logs() {
+copy_workspace_logs()
+{
     local workspace="$1"
     local artifact_dir="$2"
 
@@ -324,7 +340,8 @@ copy_workspace_logs() {
     fi
 }
 
-run_scenario() {
+run_scenario()
+{
     local workspace="$1"
     local artifact_dir="$2"
     local storefront_region="$3"
@@ -348,7 +365,8 @@ run_scenario() {
     stop_services
 }
 
-compose_comparison() {
+compose_comparison()
+{
     python3 - \
         "$COMPARISON_PATH" \
         "$EAST_LOCAL_ARTIFACT_ROOT" \
@@ -578,7 +596,8 @@ comparison_path.write_text(json.dumps(comparison, indent=2) + "\n", encoding="ut
 PY
 }
 
-main() {
+main()
+{
     mkdir -p "$ARTIFACT_ROOT" "$WORKSPACE_ROOT"
 
     run_build

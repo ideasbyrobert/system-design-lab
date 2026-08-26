@@ -77,7 +77,10 @@ internal sealed record StorefrontDebugTelemetryInfo(
     IReadOnlyList<string> Notes)
 {
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
-    public CatalogDebugTelemetryInfo? Catalog { get; init; }
+    public CatalogDebugTelemetryInfo? Catalog
+    {
+        get; init;
+    }
 }
 
 internal sealed record CatalogProductSnapshot(
@@ -98,7 +101,10 @@ internal sealed record CatalogProductSnapshot(
     StorefrontCatalogRequestInfo CatalogRequest)
 {
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
-    public CatalogDebugTelemetryInfo? DebugTelemetry { get; init; }
+    public CatalogDebugTelemetryInfo? DebugTelemetry
+    {
+        get; init;
+    }
 }
 
 internal enum CatalogProductClientOutcome
@@ -133,7 +139,10 @@ internal sealed record ProductPageResponse(
     StorefrontRequestInfo Request)
 {
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
-    public StorefrontDebugTelemetryInfo? DebugTelemetry { get; init; }
+    public StorefrontDebugTelemetryInfo? DebugTelemetry
+    {
+        get; init;
+    }
 }
 
 internal sealed record ProductPageNotFoundResponse(
@@ -147,7 +156,10 @@ internal sealed record ProductPageNotFoundResponse(
     StorefrontRequestInfo Request)
 {
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
-    public StorefrontDebugTelemetryInfo? DebugTelemetry { get; init; }
+    public StorefrontDebugTelemetryInfo? DebugTelemetry
+    {
+        get; init;
+    }
 }
 
 internal sealed record ProductPageFailureResponse(
@@ -161,5 +173,8 @@ internal sealed record ProductPageFailureResponse(
     StorefrontRequestInfo Request)
 {
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
-    public StorefrontDebugTelemetryInfo? DebugTelemetry { get; init; }
+    public StorefrontDebugTelemetryInfo? DebugTelemetry
+    {
+        get; init;
+    }
 }

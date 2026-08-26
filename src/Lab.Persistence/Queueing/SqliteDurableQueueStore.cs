@@ -1,6 +1,6 @@
+using System.Text.Json;
 using Lab.Persistence.Entities;
 using Microsoft.EntityFrameworkCore;
-using System.Text.Json;
 
 namespace Lab.Persistence.Queueing;
 

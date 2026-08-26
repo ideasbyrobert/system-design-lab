@@ -32,10 +32,10 @@ The experiment was produced by:
 
 Generated artifacts live in:
 
-- `docs/experiments/milestone-9-degraded-mode-failover/artifacts/healthy-west-local/`
-- `docs/experiments/milestone-9-degraded-mode-failover/artifacts/local-replica-unavailable/`
-- `docs/experiments/milestone-9-degraded-mode-failover/artifacts/local-catalog-unavailable/`
-- `docs/experiments/milestone-9-degraded-mode-failover/artifacts/comparison.json`
+- `/tmp/system-design-lab-experiments/milestone-9-degraded-mode-failover/artifacts/healthy-west-local/`
+- `/tmp/system-design-lab-experiments/milestone-9-degraded-mode-failover/artifacts/local-replica-unavailable/`
+- `/tmp/system-design-lab-experiments/milestone-9-degraded-mode-failover/artifacts/local-catalog-unavailable/`
+- `/tmp/system-design-lab-experiments/milestone-9-degraded-mode-failover/artifacts/comparison.json`
 
 ## Topology
 

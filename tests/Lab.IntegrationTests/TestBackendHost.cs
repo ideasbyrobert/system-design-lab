@@ -22,9 +22,15 @@ internal sealed class TestBackendHost : IAsyncDisposable
         BaseUri = baseUri;
     }
 
-    public string BackendId { get; }
+    public string BackendId
+    {
+        get;
+    }
 
-    public Uri BaseUri { get; }
+    public Uri BaseUri
+    {
+        get;
+    }
 
     public static async Task<TestBackendHost> StartAsync(string backendId)
     {

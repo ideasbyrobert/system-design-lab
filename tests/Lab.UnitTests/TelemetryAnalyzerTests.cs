@@ -13,7 +13,9 @@ public sealed class TelemetryAnalyzerTests
     [TestMethod]
     public void Analyze_ComputesLatencyPercentilesThroughputAndExactAverageConcurrency()
     {
-        using ILoggerFactory loggerFactory = LoggerFactory.Create(builder => { });
+        using ILoggerFactory loggerFactory = LoggerFactory.Create(builder =>
+        {
+        });
         TelemetryAnalyzer analyzer = new(
             new TelemetryJsonlReader(loggerFactory.CreateLogger<TelemetryJsonlReader>()),
             new QueueMetricsReader(),
@@ -90,7 +92,9 @@ public sealed class TelemetryAnalyzerTests
             Serialize(CreateJobTrace("run-b", "job-10", queueDelayMs: 10, executionMs: 20, retryCount: 0))
         ]);
 
-        using ILoggerFactory loggerFactory = LoggerFactory.Create(builder => { });
+        using ILoggerFactory loggerFactory = LoggerFactory.Create(builder =>
+        {
+        });
         TelemetryAnalyzer analyzer = new(
             new TelemetryJsonlReader(loggerFactory.CreateLogger<TelemetryJsonlReader>()),
             new QueueMetricsReader(),
@@ -164,24 +168,41 @@ public sealed class TelemetryAnalyzerTests
             await queueStore.EnqueueAsync(new EnqueueQueueJobRequest(
                 QueueJobId: "job-054-analysis-001",
                 JobType: "payment-confirmation-retry",
-                PayloadJson: Serialize(new { paymentId = "pay-1", orderId = "order-1", runId = "run-c" }),
+                PayloadJson: Serialize(new
+                {
+                    paymentId = "pay-1",
+                    orderId = "order-1",
+                    runId = "run-c"
+                }),
                 EnqueuedUtc: snapshotUtc.AddSeconds(-10)));
 
             await queueStore.EnqueueAsync(new EnqueueQueueJobRequest(
                 QueueJobId: "job-054-analysis-002",
                 JobType: "payment-confirmation-retry",
-                PayloadJson: Serialize(new { paymentId = "pay-2", orderId = "order-2", runId = "run-c" }),
+                PayloadJson: Serialize(new
+                {
+                    paymentId = "pay-2",
+                    orderId = "order-2",
+                    runId = "run-c"
+                }),
                 EnqueuedUtc: snapshotUtc.AddSeconds(-6),
                 AvailableUtc: snapshotUtc.AddSeconds(20)));
 
             await queueStore.EnqueueAsync(new EnqueueQueueJobRequest(
                 QueueJobId: "job-054-analysis-003",
                 JobType: "payment-confirmation-retry",
-                PayloadJson: Serialize(new { paymentId = "pay-3", orderId = "order-3", runId = "run-d" }),
+                PayloadJson: Serialize(new
+                {
+                    paymentId = "pay-3",
+                    orderId = "order-3",
+                    runId = "run-d"
+                }),
                 EnqueuedUtc: snapshotUtc.AddSeconds(-25)));
         }
 
-        using ILoggerFactory loggerFactory = LoggerFactory.Create(builder => { });
+        using ILoggerFactory loggerFactory = LoggerFactory.Create(builder =>
+        {
+        });
         TelemetryAnalyzer analyzer = new(
             new TelemetryJsonlReader(loggerFactory.CreateLogger<TelemetryJsonlReader>()),
             new QueueMetricsReader(),
@@ -204,7 +225,9 @@ public sealed class TelemetryAnalyzerTests
     [TestMethod]
     public void Analyze_ComputesOverloadBreakdownForMixedRejectedTimedOutAndAdmittedRequests()
     {
-        using ILoggerFactory loggerFactory = LoggerFactory.Create(builder => { });
+        using ILoggerFactory loggerFactory = LoggerFactory.Create(builder =>
+        {
+        });
         TelemetryAnalyzer analyzer = new(
             new TelemetryJsonlReader(loggerFactory.CreateLogger<TelemetryJsonlReader>()),
             new QueueMetricsReader(),
@@ -246,7 +269,9 @@ public sealed class TelemetryAnalyzerTests
     [TestMethod]
     public void Analyze_ComputesReadFreshnessMetricsGroupedBySource()
     {
-        using ILoggerFactory loggerFactory = LoggerFactory.Create(builder => { });
+        using ILoggerFactory loggerFactory = LoggerFactory.Create(builder =>
+        {
+        });
         TelemetryAnalyzer analyzer = new(
             new TelemetryJsonlReader(loggerFactory.CreateLogger<TelemetryJsonlReader>()),
             new QueueMetricsReader(),

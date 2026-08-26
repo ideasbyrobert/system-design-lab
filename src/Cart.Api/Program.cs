@@ -1,8 +1,8 @@
 using Cart.Api.CartState;
 using Lab.Persistence;
 using Lab.Persistence.DependencyInjection;
-using Lab.Shared.Contracts;
 using Lab.Shared.Configuration;
+using Lab.Shared.Contracts;
 using Lab.Shared.Logging;
 using Lab.Telemetry.AspNetCore;
 using Lab.Telemetry.DependencyInjection;

@@ -6,17 +6,29 @@ public sealed class Order
 
     public string UserId { get; set; } = string.Empty;
 
-    public string? CartId { get; set; }
+    public string? CartId
+    {
+        get; set;
+    }
 
     public string Region { get; set; } = string.Empty;
 
     public string Status { get; set; } = string.Empty;
 
-    public int TotalPriceCents { get; set; }
+    public int TotalPriceCents
+    {
+        get; set;
+    }
 
-    public DateTimeOffset CreatedUtc { get; set; }
+    public DateTimeOffset CreatedUtc
+    {
+        get; set;
+    }
 
-    public DateTimeOffset? SubmittedUtc { get; set; }
+    public DateTimeOffset? SubmittedUtc
+    {
+        get; set;
+    }
 
     public User User { get; set; } = null!;
 

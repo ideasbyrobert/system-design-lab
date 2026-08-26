@@ -4,12 +4,18 @@ public sealed class ProxyOptions
 {
     public string RoutingMode { get; set; } = ProxyRoutingModes.RoundRobin;
 
-    public ProxyBackendGroupOptions Storefront { get; set; } = new()
+    public ProxyBackendGroupOptions Storefront
+    {
+        get; set;
+    } = new()
     {
         PathPrefix = "/"
     };
 
-    public ProxyBackendGroupOptions Catalog { get; set; } = new()
+    public ProxyBackendGroupOptions Catalog
+    {
+        get; set;
+    } = new()
     {
         PathPrefix = "/catalog"
     };

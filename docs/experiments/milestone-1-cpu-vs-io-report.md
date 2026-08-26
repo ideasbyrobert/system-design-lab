@@ -28,7 +28,7 @@ Average concurrency is reconstructed from full request lifetimes in the trace da
 - no cache hits
 - no rate limiting
 - no worker activity in the selected runs
-- one clean experiment workspace under `docs/experiments/milestone-1-cpu-vs-io/workspace`
+- one clean experiment workspace under `/tmp/system-design-lab-experiments/milestone-1-cpu-vs-io/workspace`
 
 The experiment was produced by:
 
@@ -38,11 +38,11 @@ The experiment was produced by:
 
 Generated artifacts:
 
-- `docs/experiments/milestone-1-cpu-vs-io/artifacts/milestone-1-cpu-summary.json`
-- `docs/experiments/milestone-1-cpu-vs-io/artifacts/milestone-1-io-summary.json`
-- `docs/experiments/milestone-1-cpu-vs-io/artifacts/milestone-1-cpu-analysis.md`
-- `docs/experiments/milestone-1-cpu-vs-io/artifacts/milestone-1-io-analysis.md`
-- `docs/experiments/milestone-1-cpu-vs-io/artifacts/requests.jsonl`
+- `/tmp/system-design-lab-experiments/milestone-1-cpu-vs-io/artifacts/milestone-1-cpu-summary.json`
+- `/tmp/system-design-lab-experiments/milestone-1-cpu-vs-io/artifacts/milestone-1-io-summary.json`
+- `/tmp/system-design-lab-experiments/milestone-1-cpu-vs-io/artifacts/milestone-1-cpu-analysis.md`
+- `/tmp/system-design-lab-experiments/milestone-1-cpu-vs-io/artifacts/milestone-1-io-analysis.md`
+- `/tmp/system-design-lab-experiments/milestone-1-cpu-vs-io/artifacts/requests.jsonl`
 
 ## Workload
 

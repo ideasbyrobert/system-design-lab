@@ -29,11 +29,23 @@ public sealed class TokenBucketRateLimitPolicy
         Enabled = enabled;
     }
 
-    public string Name { get; }
+    public string Name
+    {
+        get;
+    }
 
-    public int Capacity { get; }
+    public int Capacity
+    {
+        get;
+    }
 
-    public double TokensPerSecond { get; }
+    public double TokensPerSecond
+    {
+        get;
+    }
 
-    public bool Enabled { get; }
+    public bool Enabled
+    {
+        get;
+    }
 }

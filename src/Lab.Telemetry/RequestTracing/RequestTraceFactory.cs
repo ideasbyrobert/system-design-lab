@@ -18,7 +18,10 @@ public sealed class RequestTraceFactory : IRequestTraceFactory
             : runId.Trim();
     }
 
-    public string RunId { get; }
+    public string RunId
+    {
+        get;
+    }
 
     public RequestTraceContext BeginRequest(
         OperationContractDescriptor contract,
